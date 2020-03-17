@@ -24,3 +24,16 @@ Opencv绘图基础，包括点、线、矩形、圆、椭圆的绘制方法
 
 ### hist.cpp
 直方图统计和归一化，使用绘图技术可视化直方图
+
+# Week4
+
+### rangHSV.cpp
+利用HSV模型进行简单的肤色检测
+
+### threshold.cpp
+比较了全局阈值和局部自适应阈值MEAN-C法的二值化效果
+
+### trackBar.cpp
+使用OPENCV内置的滑动条进行交互
+
+

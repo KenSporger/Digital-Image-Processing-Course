@@ -18,4 +18,6 @@ C++的一些语法知识，帮助更好地利用C++进行图像处理。
 
 ## video
 包含了所有程序会用到的视频流文件。
+
+#### 个人博客：https://www.cnblogs.com/kensporger/p/11628050.html
   

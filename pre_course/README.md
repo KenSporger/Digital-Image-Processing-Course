@@ -15,7 +15,7 @@
 # Week3
 
 ### ostu.cpp
-大津阈值法自实现
+大津阈值法自实现。原理参考：https://www.cnblogs.com/kensporger/p/11270452.html。
 
 ### unionSet.cpp
 并查集算法模板
