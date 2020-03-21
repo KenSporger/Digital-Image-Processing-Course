@@ -36,4 +36,17 @@ Opencv绘图基础，包括点、线、矩形、圆、椭圆的绘制方法
 ### trackBar.cpp
 使用OPENCV内置的滑动条进行交互
 
+# Week5
+
+### morphology.cpp
+形态学操作：腐蚀、膨胀、开运算、闭运算
+
+### coinCount.cpp
+连通域标记进行硬币计数
+
+### circuitCount.cpp
+连通域标记+形态学操作进行电路板焊盘计数
+
+### clipCount.cpp
+连通域标记+面积特征进行回形针计数
 

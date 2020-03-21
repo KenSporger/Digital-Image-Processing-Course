@@ -11,6 +11,7 @@ int main()
     Mat kernel = getStructuringElement(MORPH_RECT, Size(11, 11));
     threshold(img, dst, 100, 255, THRESH_BINARY_INV);
 
+    // 开运算断开连接，而不影响焊盘的形态
     morphologyEx(dst, dst, MORPH_OPEN, kernel);
     int cnt = connectedComponentsWithStats(dst, labels, stats, centers);
 

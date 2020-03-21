@@ -14,6 +14,8 @@ int main()
     morphologyEx(dst, dst, MORPH_OPEN, kernel);
     connectedComponentsWithStats(dst, labels, stats, centers);
 
+    // 左边有干扰区域，回形针面积固定，可以通过面积限制
+
     float avgArea = 0;
     int area, cnt = 0;
     // 计算连通域平均面积

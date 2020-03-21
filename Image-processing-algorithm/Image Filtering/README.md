@@ -12,3 +12,7 @@
 
 ### integralBoxFilter.cpp
 积分图加速均值滤波算法
+
+### morphology.cpp
+曼哈顿距离优化形态学处理，参考：https://blog.csdn.net/sinat_36420785/article/details/70208779。
+

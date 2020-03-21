@@ -13,9 +13,13 @@ int main()
     
     threshold(img, img, 0, 255, THRESH_OTSU);
 
+    //腐蚀
     erode(img, erodeImg, kernel);
+    // 膨胀
     dilate(img, dilateImg, kernel);
+    // 开运算
     morphologyEx(img, openImg, MORPH_OPEN, kernel);
+    // 闭运算
     morphologyEx(img, closeImg, MORPH_CLOSE, kernel);
 
     imshow("img", img);
