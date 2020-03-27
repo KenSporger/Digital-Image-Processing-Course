@@ -17,22 +17,28 @@ int main()
 
     uchar key=0;
     Mat frame;
-    Mat edge1, edge2, edge;
+    Mat edgeX, edgeY, edge;
 
     while(key != 'q'){
         
         cap.read(frame);
-        //sobel检测边缘
-        Sobel(frame, edge1, CV_64FC1, 1, 0);
-        Sobel(frame, edge2, CV_64FC1, 0, 1);
+
+        cvtColor(frame, frame, CV_BGR2GRAY);
+        
+        //检测垂直边缘
+        Sobel(frame, edgeX, CV_64FC1, 1, 0);
+        //检测水平边缘
+        Sobel(frame, edgeY, CV_64FC1, 0, 1);
+
         // 取绝对值并转256图
-        convertScaleAbs(edge1, edge1);
-        convertScaleAbs(edge2, edge2);
-        addWeighted(edge1, 0.5, edge2, 0.5, 0, edge);
+        convertScaleAbs(edgeX, edgeX);
+        convertScaleAbs(edgeY, edgeY);
+        // 全部边缘
+        addWeighted(edgeX, 0.5, edgeY, 0.5, 0, edge);
 
         imshow("frame", frame);
-        imshow("edge1", edge1);
-        imshow("edge2", edge2);
+        imshow("edge1", edgeX);
+        imshow("edge2", edgeY);
         imshow("edge", edge);
         
         key = waitKey(30);
