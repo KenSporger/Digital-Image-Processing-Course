@@ -25,8 +25,8 @@ int main()
         for (int j = 0; j < lines.cols; j++)
         {
             //(r,theta)为过原点与直线垂直直线之间的交点
-            rho = lines.at<Vec2f>(i, j)[0];
-            theta = lines.at<Vec2f>(i, j)[1];
+            float rho = lines.at<Vec2f>(i, j)[0];
+            float theta = lines.at<Vec2f>(i, j)[1];
             double a = cos(theta);
             double b = sin(theta);
             double x0 = rho * a;
