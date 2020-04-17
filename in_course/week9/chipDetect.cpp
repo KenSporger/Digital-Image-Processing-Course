@@ -11,9 +11,12 @@ int main()
     Mat gray, bin;
     // Mat mask(img.rows, img.cols, CV_8UC1, Scalar(0));
     cvtColor(img, gray, CV_BGR2GRAY);
+    Mat kernel = getStructuringElement(MORPH_RECT, Size(7, 7));
+
     
     threshold(gray, bin, 0, 255, THRESH_OTSU);
-    
+    morphologyEx(bin, bin, MORPH_OPEN, kernel);
+
     vector<vector<Point>> contours;
     findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
 
