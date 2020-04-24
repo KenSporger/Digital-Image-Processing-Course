@@ -98,7 +98,7 @@ canny边缘检测两种方法：通过Sobel获取梯度进行canny边缘检测;�
 概率霍夫直线变换获取图上所有直线，返回结果为笛卡尔系的直线端点坐标。相对于霍夫直线变换，对直线的长度和点间距作为额外限制
 
 
-# Week9-图像颜色和形状特征
+# Week9-图像全局特征
 
 ### chipDetect.cpp
 图像特征（宽长比）提取芯片中心，利用开运算作为辅助去噪，findContours查找轮廓，minAreaRect获取最小包围矩形
@@ -109,3 +109,8 @@ canny边缘检测两种方法：通过Sobel获取梯度进行canny边缘检测;�
 ### cupDectect.cpp
 结合HSV进行二值化，图像特征（面积）提取红色杯盖，findContours查找轮廓，minAreaRect获取最小包围矩形
 
+
+# Week10-图像局部特征
+
+### hog.cpp
+通过HOG方向梯度直方图特征算法来进行局部特征的匹配。首先对图像进行cell分割，计算cell的HOG直方图，合并所有HOG直方图，最后用不同图像的HOG直方图进行欧几里得距离计算。
