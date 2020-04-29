@@ -1,4 +1,5 @@
 # My configurations:
 .vscode
 run.exe
+run.out
 try.cpp
