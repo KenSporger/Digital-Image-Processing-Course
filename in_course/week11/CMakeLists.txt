@@ -8,14 +8,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 project(demo)
 
+set(OpenCV_DIR "/usr/local/opencv-3.4.2/share/OpenCV")
+
 set(INC_DIR 
          ${PROJECT_SOURCE_DIR}/inc
 )
 include_directories(${INC_DIR})
 find_package(OpenCV REQUIRED)
 
-#生成可执行文件demo_exec 
-#由于没有使用动态库，所以必须包含所有cpp文件
 add_executable(demo     main.cpp 
                         src/functions.cpp
                         src/stdafx.cpp

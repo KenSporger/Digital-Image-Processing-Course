@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "ubuntu",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/in_course/week11/inc",
+                "/usr/local/opencv-3.4.2/include",
+                "/usr/local/opencv-3.4.2/include/opencv",
+                "/usr/local/opencv-3.4.2/include/opencv2",
+                "/usr/include"  
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
