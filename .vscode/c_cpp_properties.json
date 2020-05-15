@@ -4,7 +4,6 @@
             "name": "ubuntu",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/in_course/week11/inc",
                 "/usr/local/opencv-3.4.2/include",
                 "/usr/local/opencv-3.4.2/include/opencv",
                 "/usr/local/opencv-3.4.2/include/opencv2",
