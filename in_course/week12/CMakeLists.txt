@@ -16,7 +16,8 @@ include_directories(${INC_DIR})
 find_package(OpenCV REQUIRED)
 
 add_executable(demo     main.cpp 
-                        src/enhancedHist.cpp
+                        src/gamma.cpp
+                        src/equalizeHist.cpp
             )
 
 

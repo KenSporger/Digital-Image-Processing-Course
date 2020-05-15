@@ -1,26 +1,74 @@
-#include <opencv2/opencv.hpp>
-#include "enhancedHist.h"
+#include "gamma.h"
+#include "equalizeHist.h"
 
 using namespace cv;
 using namespace std;
 
+void gammaTest(float gamma)
+{
+	Mat img = imread("../../../img/face.jpg", IMREAD_GRAYSCALE);
+	Mat dst;
+	
+	imshow("img", img);
+	gammaCorrect(img, dst,gamma);
+
+	imshow("gamma", dst);
+	waitKey(0);
+	destroyAllWindows();
+}
+
+
+void mycallback(int size, void *data)
+{
+    Mat src = *(Mat *)data;
+    Mat dst; 
+
+	gammaCorrect(src, dst, (float)size /100.0);
+
+    imshow("img", dst);
+}
+
+
+void gammaTest2()
+{
+	Mat img = imread("../../../img/gtest.jpg", IMREAD_GRAYSCALE);
+	
+	int minSize = 1;
+	int maxSize = 100;
+	
+	imshow("img", img);
+	createTrackbar("gamma value", "img", &minSize, maxSize, mycallback, &img);
+	waitKey(0);
+	destroyAllWindows();
+}
+
+void histTest()
+{
+	Mat img = imread("../../../img/etest.jpg");
+	Mat dst;
+	
+	imshow("img", img);
+	equalizeHistBGR(img, dst);
+
+	imshow("equalize", dst);
+	waitKey(0);
+	destroyAllWindows();
+}
+
+
+
 int main()
 {
-	//开始计时
-	double start = static_cast<double>(cvGetTickCount());
-
 	//gamma矫正演示
-	gammaMain();
+	gammaTest(1 / 2.2);
+	gammaTest(2.2);
 
-	//直方图均衡演示
-	equalizeMain();
+	//查找装逼信息
+	gammaTest2();
 
-	//结束计时
-	double time = ((double)cvGetTickCount() - start) / cvGetTickFrequency();
-	//显示时间
-	cout << "processing time:" << time / 1000 << "ms" << endl;
+	//三通道直方图均衡化
+	histTest();
 
-	//等待键盘响应，按任意键结束程序
-	system("pause");
+
     return 0;
 }
