@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/Sales_data.h
+iostream
+-
+
+/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/main.cpp
+iostream
+-
+Sales_data.h
+/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/Sales_data.h
+
