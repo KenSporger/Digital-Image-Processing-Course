@@ -7,7 +7,8 @@ void gammaCorrect(const Mat src, Mat &dst, float gamma)
     uchar map[256];
     for (int i = 0; i < 256; i++)
     {
-        map[i] = static_cast<uchar>(pow((float)i / 255, gamma) * 255);
+        //防止溢出，进行截断
+        map[i] = saturate_cast<uchar>(pow((float)i / 255, gamma) * 255);
     }
 
     src.copyTo(dst);
