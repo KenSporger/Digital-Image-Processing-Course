@@ -10,9 +10,13 @@
 iostream
 -
 
-/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/main.cpp
+/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/main3.cpp
 iostream
 -
 Sales_data.h
 /home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/Sales_data.h
+
+/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/src/Sales_data.cpp
+Sales_data.h
+/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/src/Sales_data.h
 

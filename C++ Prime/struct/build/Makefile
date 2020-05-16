@@ -123,32 +123,59 @@ demo/fast:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
 .PHONY : demo/fast
 
-main.o: main.cpp.o
+main3.o: main3.cpp.o
 
-.PHONY : main.o
+.PHONY : main3.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.o
-.PHONY : main.cpp.o
+main3.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main3.cpp.o
+.PHONY : main3.cpp.o
 
-main.i: main.cpp.i
+main3.i: main3.cpp.i
 
-.PHONY : main.i
+.PHONY : main3.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.i
-.PHONY : main.cpp.i
+main3.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main3.cpp.i
+.PHONY : main3.cpp.i
 
-main.s: main.cpp.s
+main3.s: main3.cpp.s
 
-.PHONY : main.s
+.PHONY : main3.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.s
-.PHONY : main.cpp.s
+main3.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main3.cpp.s
+.PHONY : main3.cpp.s
+
+src/Sales_data.o: src/Sales_data.cpp.o
+
+.PHONY : src/Sales_data.o
+
+# target to build an object file
+src/Sales_data.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Sales_data.cpp.o
+.PHONY : src/Sales_data.cpp.o
+
+src/Sales_data.i: src/Sales_data.cpp.i
+
+.PHONY : src/Sales_data.i
+
+# target to preprocess a source file
+src/Sales_data.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Sales_data.cpp.i
+.PHONY : src/Sales_data.cpp.i
+
+src/Sales_data.s: src/Sales_data.cpp.s
+
+.PHONY : src/Sales_data.s
+
+# target to generate assembly for a file
+src/Sales_data.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/Sales_data.cpp.s
+.PHONY : src/Sales_data.cpp.s
 
 # Help Target
 help:
@@ -159,9 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... demo"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... main3.o"
+	@echo "... main3.i"
+	@echo "... main3.s"
+	@echo "... src/Sales_data.o"
+	@echo "... src/Sales_data.i"
+	@echo "... src/Sales_data.s"
 .PHONY : help
 
 

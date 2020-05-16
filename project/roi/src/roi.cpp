@@ -70,7 +70,7 @@ void ROI::selectPolygon(cv::Mat &dstMat)
     //鼠标左键选择角点，任意按键结束选择
     cv::imshow(windowName, srcMat);
     std::cout << "ok" << std::endl;
-    cv::setMouseCallback(windowName, (cv::MouseCallback)&ROI::mouseCallback, &selectMat);
+    cv::setMouseCallback(windowName, mouseCallback, &selectMat);
     cv::waitKey(0);
     cv::destroyAllWindows();
 

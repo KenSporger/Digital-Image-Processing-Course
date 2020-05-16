@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/main.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/build/CMakeFiles/demo.dir/main.cpp.o"
+  "/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/main3.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/build/CMakeFiles/demo.dir/main3.cpp.o"
+  "/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/src/Sales_data.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/C++ Prime/struct/build/CMakeFiles/demo.dir/src/Sales_data.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

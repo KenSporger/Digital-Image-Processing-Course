@@ -15,7 +15,7 @@ set(INC_DIR
 include_directories(${INC_DIR})
 find_package(OpenCV REQUIRED)
 
-add_executable(demo     main.cpp )
+add_executable(demo     main3.cpp src/Sales_data.cpp)
 
 
 target_link_libraries(demo ${OpenCV_LIBS} )
