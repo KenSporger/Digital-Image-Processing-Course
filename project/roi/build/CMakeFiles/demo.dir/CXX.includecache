@@ -12,13 +12,13 @@ iostream
 opencv2/opencv.hpp
 -
 
-/home/ken/Documents/Digital-Image-Processing-Course/project/roi/main.cpp
+/home/ken/Documents/DIP_CV/project/roi/main.cpp
 roi.h
-/home/ken/Documents/Digital-Image-Processing-Course/project/roi/roi.h
+/home/ken/Documents/DIP_CV/project/roi/roi.h
 
-/home/ken/Documents/Digital-Image-Processing-Course/project/roi/src/roi.cpp
+/home/ken/Documents/DIP_CV/project/roi/src/roi.cpp
 roi.h
-/home/ken/Documents/Digital-Image-Processing-Course/project/roi/src/roi.h
+/home/ken/Documents/DIP_CV/project/roi/src/roi.h
 
 /usr/local/opencv-3.4.2/include/opencv/cxcore.h
 opencv2/core/core_c.h

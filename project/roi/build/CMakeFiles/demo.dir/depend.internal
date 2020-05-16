@@ -3,7 +3,7 @@
 
 CMakeFiles/demo.dir/main.cpp.o
  ../inc/roi.h
- /home/ken/Documents/Digital-Image-Processing-Course/project/roi/main.cpp
+ /home/ken/Documents/DIP_CV/project/roi/main.cpp
  /usr/local/opencv-3.4.2/include/opencv/cxcore.h
  /usr/local/opencv-3.4.2/include/opencv2/calib3d.hpp
  /usr/local/opencv-3.4.2/include/opencv2/calib3d/calib3d_c.h
@@ -136,7 +136,7 @@ CMakeFiles/demo.dir/main.cpp.o
  /usr/local/opencv-3.4.2/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/demo.dir/src/roi.cpp.o
  ../inc/roi.h
- /home/ken/Documents/Digital-Image-Processing-Course/project/roi/src/roi.cpp
+ /home/ken/Documents/DIP_CV/project/roi/src/roi.cpp
  /usr/local/opencv-3.4.2/include/opencv/cxcore.h
  /usr/local/opencv-3.4.2/include/opencv2/calib3d.hpp
  /usr/local/opencv-3.4.2/include/opencv2/calib3d/calib3d_c.h

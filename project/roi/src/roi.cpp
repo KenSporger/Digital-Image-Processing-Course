@@ -1,27 +1,20 @@
 #include "roi.h"
 
-//构造函数
-ROI::ROI(const cv::Mat src)
-{
-    if (!src.empty())
-    {
-        src.copyTo(srcMat);
-    }
-    else
-    {
-        std::cout << "failed to read image!:" << std::endl;
-        return ;
-    }
-}
+using namespace cv;
+
+std::vector<Point> mousePoints;
+const String windowName = "roi";
 
 
 //鼠标交互相应
-void ROI::mouseCallback(int EVENT, int x, int y, int flags, void* userdata)
+void polygonCallback(int EVENT, int x, int y, int flags, void* userdata)
 {
     //获取窗口显示图像
-    cv::Mat img = *(cv::Mat*) userdata;
+    Mat img = *(Mat*) userdata;
+    Mat dst;
+    img.copyTo(dst);
     //获取坐标
-    cv::Point pos(x,y);
+    Point pos(x,y);
 
     /*
     EVENT: 
@@ -49,44 +42,73 @@ void ROI::mouseCallback(int EVENT, int x, int y, int flags, void* userdata)
         {
             mousePoints.push_back(pos);
             //绘制点以反馈
-            cv::circle(img, pos, pointSize, displayColor, -1);
-            // case CV_EVENT_MOUSEMOVE
+            circle(img, pos, 4, Scalar(255, 0, 0), -1);
+            size_t end = mousePoints.size();
+            if (end > 1)
+            {
+                line(img, mousePoints[end - 2], mousePoints[end - 1], Scalar(255, 0, 0));
+                line(dst, mousePoints[end - 2], mousePoints[end - 1], Scalar(255, 0, 0));
+            }
             break;
+        }
+        case CV_EVENT_MOUSEMOVE:
+        {
+            size_t end = mousePoints.size();
+            if (end > 1)
+            {
+                line(dst, mousePoints[end - 1], pos, Scalar(255, 0, 0));
+                line(dst, mousePoints[0], pos, Scalar(255, 0, 0));
+            }
         }
 
     }
 
-    cv::imshow(windowName, img);
+    imshow(windowName, dst);
 }
 
 //ROI多边形区域选择
-void ROI::selectPolygon(cv::Mat &dstMat)
+void selectPolygon(const Mat &srcMat, Mat &dstMat)
 {
-    cv::Mat selectMat;
-    //掩码图像
-    cv::Mat mask(srcMat.rows, srcMat.cols, 0);
-    srcMat.copyTo(selectMat);
+    if (srcMat.empty())
+    {
+        std::cerr << "srcMat is empty!" << std::endl;
+        return;
+    }
 
     //鼠标左键选择角点，任意按键结束选择
-    cv::imshow(windowName, srcMat);
-    std::cout << "ok" << std::endl;
-    cv::setMouseCallback(windowName, mouseCallback, &selectMat);
-    cv::waitKey(0);
-    cv::destroyAllWindows();
+    imshow(windowName, srcMat);
+    Mat selectMat;
+    char key;
+    srcMat.copyTo(selectMat);
+    std::vector<std::vector<Point>> contours;
+    do{
+        setMouseCallback(windowName, polygonCallback, &selectMat);
+        key = waitKey(0);
+        //判断是否能构成多边形
+        if (mousePoints.size() < 3)
+        {
+            std::cout << "points are too little!:" << std::endl;
+            mousePoints.clear();
+        }
+        else
+        {
+            line(selectMat, mousePoints[0], mousePoints[mousePoints.size() - 1], Scalar(255, 0, 0));
+            //存储边界
+            contours.push_back(mousePoints);
+            mousePoints.clear();
+        }
+    }while (key != 'q');
 
-    //判断是否能构成多边形
-    if (mousePoints.size() < 3)
-    {
-        std::cout << "points are too little!:" << std::endl;
-		return;
-    }
-    
-    //存储边界
-    contours.push_back(mousePoints);
+    destroyAllWindows();
+
     //实心roi掩码
-    cv::drawContours(mask, contours, contours.size() - 1, 255, -1);
+    //掩码图像
+    Mat mask(srcMat.rows, srcMat.cols, CV_8UC1, Scalar(0));
+    for (size_t i = 0; i < contours.size(); i++)
+    {
+        drawContours(mask, contours, i, Scalar(255), -1);
+    }
     mask.copyTo(dstMat);
-
+    mousePoints.clear();
 }
-
 
