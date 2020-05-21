@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "(gdb) commonLaunch",
             "type": "cppdbg",
@@ -28,7 +29,7 @@
             "program": "${workspaceFolder}/in_course/week11/build/demo",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/in_course/week11/build/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -49,7 +50,7 @@
             "program": "${workspaceFolder}/project/roi/build/demo",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/project/roi/build/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -70,7 +71,7 @@
             "program": "${workspaceFolder}/in_course/week12/build/demo",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/in_course/week12/build/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -82,6 +83,28 @@
                     "ignoreFailures": true
                 }
             ]
-        }
+        },
+
+        {
+            "name": "(gdb) dftLaunch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/project/dft/build/demo",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/project/dft/build/",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        
     ]
 }
