@@ -14,6 +14,12 @@ opencv2/opencv.hpp
 roi.h
 ../inc/roi.h
 
+../inc/hough.h
+iostream
+-
+opencv2/opencv.hpp
+-
+
 ../inc/roi.h
 iostream
 -
@@ -25,10 +31,16 @@ dft.h
 /home/ken/Documents/Digital-Image-Processing-Course/project/dft/dft.h
 roi.h
 /home/ken/Documents/Digital-Image-Processing-Course/project/dft/roi.h
+hough.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/dft/hough.h
 
 /home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/dft.cpp
 dft.h
 /home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/dft.h
+
+/home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/hough.cpp
+hough.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/hough.h
 
 /home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/roi.cpp
 roi.h

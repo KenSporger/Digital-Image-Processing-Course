@@ -177,6 +177,33 @@ src/dft.cpp.s:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/dft.cpp.s
 .PHONY : src/dft.cpp.s
 
+src/hough.o: src/hough.cpp.o
+
+.PHONY : src/hough.o
+
+# target to build an object file
+src/hough.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/hough.cpp.o
+.PHONY : src/hough.cpp.o
+
+src/hough.i: src/hough.cpp.i
+
+.PHONY : src/hough.i
+
+# target to preprocess a source file
+src/hough.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/hough.cpp.i
+.PHONY : src/hough.cpp.i
+
+src/hough.s: src/hough.cpp.s
+
+.PHONY : src/hough.s
+
+# target to generate assembly for a file
+src/hough.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/hough.cpp.s
+.PHONY : src/hough.cpp.s
+
 src/roi.o: src/roi.cpp.o
 
 .PHONY : src/roi.o
@@ -219,6 +246,9 @@ help:
 	@echo "... src/dft.o"
 	@echo "... src/dft.i"
 	@echo "... src/dft.s"
+	@echo "... src/hough.o"
+	@echo "... src/hough.i"
+	@echo "... src/hough.s"
 	@echo "... src/roi.o"
 	@echo "... src/roi.i"
 	@echo "... src/roi.s"

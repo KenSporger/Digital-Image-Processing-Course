@@ -16,7 +16,7 @@ void dftConvert(const Mat &src, Mat &mag_mat, Mat &ph_mat)
     int pad_row = getOptimalDFTSize(src.rows);
     int pad_col = getOptimalDFTSize(src.cols);
 
-    //在底部和右部(以便后面位运算进行裁剪)扩展边界,填充常数值0
+    //在底部和右部扩展边界,填充常数值0
     Mat pad_mat;
     copyMakeBorder(src, pad_mat, 0, pad_row - src.rows, 0, pad_col - src.cols, BORDER_CONSTANT, Scalar::all(0));
     std::cout << "pad_mat.rows: " << pad_row << std::endl;
@@ -39,6 +39,44 @@ void dftConvert(const Mat &src, Mat &mag_mat, Mat &ph_mat)
 
     
 }
+
+//重载函数
+//输入：单通道灰度图
+// 输出：原始的幅度谱
+void dftConvert(const Mat &src, Mat &mag_mat)
+{
+    if (src.empty() ) {
+		return;
+	}
+    //只对单通道灰度图进行处理
+    CV_Assert(src.type() == CV_8UC1);
+
+    //获取最佳长宽，加速DFT计算（因数只有2,3,5是最快的）
+    int pad_row = getOptimalDFTSize(src.rows);
+    int pad_col = getOptimalDFTSize(src.cols);
+
+    //在底部和右部(以便后面位运算进行裁剪)扩展边界,填充常数值0
+    Mat pad_mat;
+    copyMakeBorder(src, pad_mat, 0, pad_row - src.rows, 0, pad_col - src.cols, BORDER_CONSTANT, Scalar::all(0));
+    std::cout << "pad_mat.rows: " << pad_row << std::endl;
+    std::cout << "pad_mat.cols: " << pad_col << std::endl;
+
+    //存储实部和虚部(填充0)
+    Mat complex[2] = {Mat_<float>(pad_mat), Mat::zeros(pad_mat.size(), CV_32F)};
+    Mat complex_mat;
+    //合并实部和虚部，建立二通道Mat
+    merge(complex, 2, complex_mat);
+
+    //傅里叶变换
+    dft(complex_mat, complex_mat);
+    //分割实部和虚部
+    split(complex_mat, complex);
+
+    //求幅度谱和相位谱
+    magnitude(complex[0], complex[1], mag_mat);
+
+}
+
 
 
 
@@ -135,7 +173,7 @@ void dftInteractiveFilter(const Mat &src, Mat &mag_mat, Mat &ph_mat, Mat &dst)
 		return;
 	}
     //只对单通道灰度图进行处理
-    CV_Assert(src.type() == CV_8UC1 && mag_mat.type() == CV_32F && ph_mat.type() == CV_32F);
+    CV_Assert(src.type() == CV_8UC1);
 
     //分别存储幅度谱、相位谱、可视化幅度谱
 	Mat mats[3];
@@ -147,20 +185,21 @@ void dftInteractiveFilter(const Mat &src, Mat &mag_mat, Mat &ph_mat, Mat &dst)
     int cols = mats[1].cols;
     //幅度谱对角线互换
 	diagonExchange(mats[0], mats[0]);
-    diagonExchange(mats[1], mats[1]);
+    //由于幅度谱控制了相位谱的幅值，所以只要抑制幅度谱即可
+    // diagonExchange(mats[1], mats[1]);
     //幅度谱归一化
 	dftNormalize(mats[0], mats[2]);
 
     Mat mask;
-	selectPolygon(mats[2], mask, false);
+	selectPolygon(mats[2], mask, true);
 	mats[0] = mats[0].mul(mask);
-    mats[1] = mats[1].mul(mask);
+    // mats[1] = mats[1].mul(mask);
 	diagonExchange(mats[0], mats[0]);
-    diagonExchange(mats[1], mats[1]);
+    // diagonExchange(mats[1], mats[1]);
 
     //恢复谱大小
     mats[0] = mats[0](Rect(0, 0, cols, rows));
-    mats[1] = mats[1](Rect(0, 0, cols, rows));
+    // mats[1] = mats[1](Rect(0, 0, cols, rows));
     mats[0].copyTo(mag_mat);
     mats[1].copyTo(ph_mat);
 	idftConvert(mats[0], mats[1], src.rows, src.cols, dst);

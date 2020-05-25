@@ -6,6 +6,7 @@
 #include "roi.h"
 
 void dftConvert(const cv::Mat &src, cv::Mat &mag_mat, cv::Mat &ph_mat);
+void dftConvert(const cv::Mat &src, cv::Mat &mag_mat);
 void diagonExchange(cv::Mat src, cv::Mat &dst);
 void dftNormalize(const cv::Mat &mag_mat, cv::Mat &normalized_mat);
 void idftConvert(const cv::Mat &mag_mat, const cv::Mat &ph_mat, int dst_rows, int dst_cols, cv::Mat &dst);

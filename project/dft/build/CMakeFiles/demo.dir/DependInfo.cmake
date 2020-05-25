@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/main.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/build/CMakeFiles/demo.dir/main.cpp.o"
   "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/dft.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/build/CMakeFiles/demo.dir/src/dft.cpp.o"
+  "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/hough.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/build/CMakeFiles/demo.dir/src/hough.cpp.o"
   "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/src/roi.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/dft/build/CMakeFiles/demo.dir/src/roi.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -18,6 +18,7 @@ find_package(OpenCV REQUIRED)
 add_executable(demo     main.cpp 
                         src/dft.cpp
                         src/roi.cpp
+                        src/hough.cpp
             )
 
 
