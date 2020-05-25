@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/main.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles/demo.dir/main.cpp.o"
-  "/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles/demo.dir/src/bgSubDemo.cpp.o"
+  "/home/ken/Documents/DIP_CV/class-demo/bgSub/main.cpp" "/home/ken/Documents/DIP_CV/class-demo/bgSub/build/CMakeFiles/demo.dir/main.cpp.o"
+  "/home/ken/Documents/DIP_CV/class-demo/bgSub/src/bgSubDemo.cpp" "/home/ken/Documents/DIP_CV/class-demo/bgSub/build/CMakeFiles/demo.dir/src/bgSubDemo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

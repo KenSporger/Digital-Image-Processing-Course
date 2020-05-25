@@ -3,7 +3,8 @@
 
 CMakeFiles/demo.dir/main.cpp.o
  ../inc/bgSubDemo.h
- /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/main.cpp
+ ../inc/parameterDemo.h
+ /home/ken/Documents/DIP_CV/class-demo/bgSub/main.cpp
  /usr/local/opencv-3.4.2/include/opencv/cxcore.h
  /usr/local/opencv-3.4.2/include/opencv2/calib3d.hpp
  /usr/local/opencv-3.4.2/include/opencv2/calib3d/calib3d_c.h
@@ -136,7 +137,8 @@ CMakeFiles/demo.dir/main.cpp.o
  /usr/local/opencv-3.4.2/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/demo.dir/src/bgSubDemo.cpp.o
  ../inc/bgSubDemo.h
- /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.cpp
+ ../inc/parameterDemo.h
+ /home/ken/Documents/DIP_CV/class-demo/bgSub/src/bgSubDemo.cpp
  /usr/local/opencv-3.4.2/include/opencv/cxcore.h
  /usr/local/opencv-3.4.2/include/opencv2/calib3d.hpp
  /usr/local/opencv-3.4.2/include/opencv2/calib3d/calib3d_c.h

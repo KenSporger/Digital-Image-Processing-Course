@@ -1,15 +1,32 @@
 #include "bgSubDemo.h"
 
 using namespace cv;
+using namespace std;
 
 //观察的位置
 cv::Point vP;
+string wName = "鼠标左键点击选择像素，选择后按任意键开始处理";
+int sub_threshold = 0;
+Mat bgMat;
+Mat subMat;
+Mat bny_subMat;
+
+bool useCamera = USE_CAMERA;
+string videoPath = VIDEO_PATH;
+
+void threshold_track(int, void *)//这里就是定义的一个回调函数，里面是canny相关的操作
+{
+
+	threshold(subMat, bny_subMat,sub_threshold , 255, CV_THRESH_BINARY);
+	imshow("Result", bny_subMat);
+}
+
 
 //该demo验证并演示，视频中的像素灰度值变换是否呈高斯分布
 int verifyGaussian()
 {
 	//----------------------读取视频文件--------------------------
-	VideoCapture capVideo("../../../video/vtest.avi");
+	VideoCapture capVideo = createInput(useCamera, videoPath);
 
 	//如果视频打开失败
 	if (!capVideo.isOpened()) {
@@ -19,7 +36,7 @@ int verifyGaussian()
 
 	int cnt = 0;
 	int bin_width = 3;
-	int bin_heght = 50;
+	int bin_heght = 100;
 	float histgram[256] = {0};
 
 	cv::Mat histMat;
@@ -39,9 +56,9 @@ int verifyGaussian()
 		if (cnt == 0) {
 			Mat selectMat;
 			frame.copyTo(selectMat);
-			namedWindow("mouseCallback");
-			imshow("mouseCallback", selectMat);
-			setMouseCallback("mouseCallback", on_mouse, &selectMat);
+			namedWindow(wName);
+			imshow(wName, selectMat);
+			setMouseCallback(wName, on_mouse, &selectMat);
 			waitKey(0);
 			destroyAllWindows();
 		}
@@ -60,7 +77,12 @@ int verifyGaussian()
 		imshow("frame",frame);
 		imshow("histMat",histMat);
 
-		waitKey(30);
+		//显示图片，延时30ms，必须要加waitKey()，否则无法显示图像
+		//等待键盘相应，按下ESC键退出
+		if (waitKey(30) == 27) {
+			destroyAllWindows();
+			break;
+		}
 		cnt++;
 	}
 
@@ -70,9 +92,8 @@ int verifyGaussian()
 
 int bgSub_demo()
 {
-
 	//----------------------读取视频文件--------------------------
-	VideoCapture capVideo("../../../video/vtest.avi");
+	VideoCapture capVideo = createInput(useCamera, videoPath);
 
 	//如果视频打开失败
 	if (!capVideo.isOpened()) {
@@ -80,55 +101,54 @@ int bgSub_demo()
 		return -1;
 	}
 
-	//使用几张图片进行背景建模
-	int modelNum = 20;
-
+	//计数器
 	int cnt = 0;
-
-	Mat bgModelMat;
-	Mat frame, subMat, sub_bin;
-	// Mat correct;
+	Mat frame;
 	while (1) {
 
 		capVideo >> frame;
+		cvtColor(frame,frame,COLOR_BGR2GRAY);
 
 		if (frame.empty()) {
 			std::cout << "Unable to read frame!" << std::endl;
 			return -1;
 		}
 
-		cvtColor(frame, frame, COLOR_BGR2GRAY);
-		if (cnt == 0)
-		{
-			frame.copyTo(bgModelMat);
+		if (cnt== 0) {
+			//第一帧，获得背景图像
+			frame.copyTo(bgMat);
 		}
-		else
-		{
-			absdiff(frame, bgModelMat, subMat);
-			threshold(subMat, sub_bin, 50, 255, THRESH_BINARY);
+		else {
+			//第二帧开始背景差分
+			//背景图像和当前图像相减
+			absdiff(frame, bgMat, subMat);
+			//差分结果二值化
+			namedWindow("Result", WINDOW_AUTOSIZE);
+			//滑动条创建
+			cv::createTrackbar("threshold", "Result", &sub_threshold, 255, threshold_track);
+			threshold_track(0,0);
 
-			// frame.copyTo(correct, sub_bin);
-			// addWeighted(bgModelMat, 0.95, frame, 0.05, 0, bgModelMat);
-
-			imshow("sub", subMat);
-			imshow("sub_bin", sub_bin);
-			// imshow("bg", bgModelMat);
-			waitKey(30);
+			imshow("frame",frame);
 		}
 
-		++cnt;
-		
+		//显示图片，延时30ms，必须要加waitKey()，否则无法显示图像
+		//等待键盘相应，按下ESC键退出
+		if (waitKey(30) == 27) {
+			destroyAllWindows();
+			break;
+		}
+
+		cnt++;
 	}
 
 	return 0;
 }
-
 
 int bgSubGaussian_demo()
 {
-
 	//----------------------读取视频文件--------------------------
-	VideoCapture capVideo("../../../video/vtest.avi");
+	//----------------------读取视频文件--------------------------
+	VideoCapture capVideo = createInput(useCamera, videoPath);
 
 	//如果视频打开失败
 	if (!capVideo.isOpened()) {
@@ -136,105 +156,227 @@ int bgSubGaussian_demo()
 		return -1;
 	}
 
-	//使用几张图片进行背景建模
-	const int modelNum = 20;
+	//如果视频打开失败
+	if (!capVideo.isOpened()) {
+		std::cout << "Unable to open video!" << std::endl;
+		return -1;
+	}
+
+	//用来计算背景模型的图像
+	std::vector<cv::Mat> srcMats;
+
+	
+	int nBg = FRAME_NUMBER;		//用来建立背景模型的数量
+	float wVar = VAR_WEIGHT;		//方差权重
 
 	int cnt = 0;
+	bool calcModel= true;
+	cv::Mat frame;
+	cv::Mat meanMat;
+	cv::Mat varMat;
+	cv::Mat dstMat;
 
-	Mat mean_mat, var_mat;
-	Mat frame, sub_bin;
-	std::vector<Mat> mat_save;
-	// Mat correct;
+	while (true)
+	{
+		capVideo >> frame;
+		cvtColor(frame, frame, COLOR_BGR2GRAY);
+
+		if (frame.empty()) {
+			std::cout << "Unable to read frame!" << std::endl;
+			return -1;
+		}
+
+		//前面的nBg帧，计算背景
+		if (cnt <= nBg) {
+
+			srcMats.push_back(frame);
+
+			if (cnt == 0) {
+				std::cout << "--- reading frame --- " << std::endl;
+			}
+			else {
+				std::cout << "-";
+				if (cnt % 50 == 0)std::cout << std::endl;
+			}
+		}
+		else {
+			if (calcModel) {
+				std::cout << std::endl << "calculating background models" << std::endl;
+				//计算模型
+				meanMat.create(frame.size(), CV_8UC1);
+				varMat.create(frame.size(), CV_32FC1);
+				//调用计算模型函数
+				calcGaussianBackground(srcMats, meanMat, varMat);
+			}
+			calcModel = false;
+
+			//背景差分
+			dstMat.create(frame.size(), CV_8UC1);
+			//利用均值mat和方差mat，计算差分
+			gaussianThreshold(frame, meanMat, varMat, wVar, dstMat);
+			imshow("result", dstMat);
+			imshow("frame", frame);
+
+		}
+
+		//显示图片，延时30ms，必须要加waitKey()，否则无法显示图像
+		//等待键盘相应，按下ESC键退出
+		if (waitKey(30) == 27) {
+			destroyAllWindows();
+			break;
+		}
+		cnt++;
+	}
+
+	return 0;
+}
+
+int calcGaussianBackground(std::vector<cv::Mat> srcMats, cv::Mat & meanMat, cv::Mat &varMat)
+{
+
+	int rows = srcMats[0].rows;
+	int cols = srcMats[0].cols;
+
+
+	for (int h = 0; h < rows; h++)
+	{
+		for (int w = 0; w < cols; w++)
+		{
+
+			int sum=0;
+			float var=0;
+			//求均值
+			for (int i = 0; i < srcMats.size(); i++) {
+				sum += srcMats[i].at<uchar>(h, w);
+			}
+			meanMat.at<uchar>(h, w) =(uchar)(sum / srcMats.size());
+			//求方差
+			for (int i = 0; i < srcMats.size(); i++) {
+				var += (float)pow((srcMats[i].at<uchar>(h, w) - meanMat.at<uchar>(h, w)), 2);
+			}
+			varMat.at<float>(h, w) = var / srcMats.size();
+		}
+	}
+
+	return 0;
+ }
+
+int gaussianThreshold(cv::Mat srcMat, cv::Mat meanMat, cv::Mat varMat, float weight, cv::Mat & dstMat)
+{
+	int rows = srcMat.rows;
+	int cols = srcMat.cols;
+
+	for (int h = 0; h < rows; h++)
+	{
+		for (int w = 0; w < cols; w++)
+		{
+			int dif = abs(srcMat.at<uchar>(h, w) - meanMat.at<uchar>(h, w));
+			int th = (int)(weight*varMat.at<float>(h, w));
+
+			if (dif > th) {
+
+				dstMat.at<uchar>(h, w) = 255;
+			}
+			else {
+				dstMat.at<uchar>(h, w)=0;
+			}
+		}
+	}
+
+	return 0;
+}
+
+//调用opencv的背景差分函数方法
+int opencvBgSubtrator()
+{
+	//----------------------读取视频文件--------------------------
+	VideoCapture capVideo = createInput(useCamera, videoPath);
+
+	//如果视频打开失败
+	if (!capVideo.isOpened()) {
+		std::cout << "Unable to open video!" << std::endl;
+		return -1;
+	}
+
+	//如果视频打开失败
+	if (!capVideo.isOpened()) {
+		std::cout << "Unable to open video!" << std::endl;
+		return -1;
+	}
+
+	Mat inputFrame, frame, foregroundMask, foreground, background;
+
+	int method = BG_METHOD;
+	Ptr<BackgroundSubtractor> model;
+	if (method == 0) {
+		model = createBackgroundSubtractorKNN();
+	}
+	else if (method == 1) {
+		model = createBackgroundSubtractorMOG2();
+	}
+	else {
+		cout << "Can not create background model using provided method: '" << method << "'" << endl;
+	}
+
+	bool doUpdateModel = true;
+	bool doSmoothMask = false;
+
 	while (1) {
-
 		capVideo >> frame;
 
 		if (frame.empty()) {
 			std::cout << "Unable to read frame!" << std::endl;
 			return -1;
 		}
-		cvtColor(frame, frame, COLOR_BGR2GRAY);
-		
-		if (cnt < modelNum)
+
+		// pass the frame to background model
+		model->apply(frame, foregroundMask, doUpdateModel ? -1 : 0);
+
+		// show processed frame
+		imshow("image", frame);
+
+		// show foreground image and mask (with optional smoothing)
+		if (doSmoothMask)
 		{
-			mat_save.push_back(frame);
+			GaussianBlur(foregroundMask, foregroundMask, Size(11, 11), 3.5, 3.5);
+			threshold(foregroundMask, foregroundMask, 10, 255, THRESH_BINARY);
 		}
-		else if (cnt == modelNum)
+		if (foreground.empty())
+			foreground.create(frame.size(), frame.type());
+		foreground = Scalar::all(0);
+		frame.copyTo(foreground, foregroundMask);
+		imshow("foreground mask", foregroundMask);
+		imshow("foreground image", foreground);
+
+		// show background image
+		model->getBackgroundImage(background);
+		if (!background.empty())
+			imshow("mean background image", background);
+
+		// interact with user
+		const char key = (char)waitKey(30);
+		if (key == 27 || key == 'q') // ESC
 		{
-			calcuGaussianModle(mat_save, mean_mat, var_mat);
+			cout << "Exit requested" << endl;
+			break;
 		}
-		
-		else
+		else if (key == ' ')
 		{
-			gaussianModelDiff(mean_mat, var_mat, frame, 2, sub_bin);
-			imshow("sub_bin", sub_bin);
-			waitKey(30);
+			doUpdateModel = !doUpdateModel;
+			cout << "Toggle background update: " << (doUpdateModel ? "ON" : "OFF") << endl;
+		}
+		else if (key == 's')
+		{
+			doSmoothMask = !doSmoothMask;
+			cout << "Toggle foreground mask smoothing: " << (doSmoothMask ? "ON" : "OFF") << endl;
 		}
 
-		++cnt;
-		
 	}
+
+	
+
 
 	return 0;
-}
-
-//计算高斯模型的均值图像和方差图像
-void calcuGaussianModle(const std::vector<Mat> &mat_save, Mat &mean_mat, Mat &var_mat)
-{
-	int rows = mat_save[0].rows;
-	int cols = mat_save[0].cols;
-	
-	//像素各自累加计算均值
-	Mat mean(rows, cols, CV_32FC1, Scalar(0));
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < cols; j++)
-		{
-			for (Mat frame : mat_save)
-			{
-				mean.at<float>(i, j) += frame.at<uchar>(i, j);
-			}
-		}
-	}
-	mean.mul(1.0 / mat_save.size());
-	mean.convertTo(mean_mat, CV_8UC1);
-
-	//像素各自计算方差
-	Mat variance(rows, cols, CV_32FC1, Scalar(0));
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < cols; j++)
-		{
-			for (Mat frame : mat_save)
-			{
-				variance.at<float>(i, j) += pow(static_cast<double>(frame.at<uchar>(i, j)) - mean.at<float>(i, j), 2);
-			}
-		}
-	}	
-	variance.mul(1.0 / mat_save.size());
-	variance.copyTo(var_mat);
-
-
-}
-
-//利用高斯模型进行背景差分
-void gaussianModelDiff(const Mat &mean_mat, Mat &var_mat, const Mat &frame, float th, Mat &sub_bin)
-{
-	Mat sub_mat;
-	absdiff(frame, mean_mat, sub_mat);
-
-	sub_mat.copyTo(sub_bin);
-	MatIterator_<uchar> it1, end1, it2, end2;
-	it1 = sub_bin.begin<uchar>();
-	it2 = var_mat.begin<uchar>();
-	end1 = sub_bin.end<uchar>();
-	end2 = var_mat.end<uchar>();
-	while (it1 != end1)
-	{
-		int thresh = th * (*it2);
-		*it1 = *it1 >= thresh ? 255 : 0;
-		++it1;++it2;
-	}
 }
 
 
@@ -252,7 +394,7 @@ void on_mouse(int EVENT, int x, int y, int flags, void* userdata)
 		vP.y = y;
 		drawMarker(hh,vP,Scalar(255,255,255));
 		//circle(hh, vP, 4, cvScalar(255, 255, 255), -1);
-		imshow("mouseCallback", hh);
+		imshow(wName, hh);
 		return;
 	}
 	break;
@@ -260,7 +402,7 @@ void on_mouse(int EVENT, int x, int y, int flags, void* userdata)
 
 }
 
-//绘制直方图,某个像素在时间维度上的累加值
+//绘制直方图
 int drawHist(cv::Mat & histMat, float * srcHist, int bin_width, int bin_heght)
 {
 	histMat.create(bin_heght, 256 * bin_width, CV_8UC3);
@@ -280,4 +422,17 @@ int drawHist(cv::Mat & histMat, float * srcHist, int bin_width, int bin_heght)
 	}
 
 	return 0;
+}
+
+VideoCapture createInput(bool useCamera,std::string videoPath)
+{
+	//选择输入
+	VideoCapture capVideo;
+	if (useCamera) {
+		capVideo.open(0);
+	}
+	else {
+		capVideo.open(videoPath);
+	}
+	return capVideo;
 }

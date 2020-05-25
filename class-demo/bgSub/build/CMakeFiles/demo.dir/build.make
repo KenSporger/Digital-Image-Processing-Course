@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub
+CMAKE_SOURCE_DIR = /home/ken/Documents/DIP_CV/class-demo/bgSub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build
+CMAKE_BINARY_DIR = /home/ken/Documents/DIP_CV/class-demo/bgSub/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/demo.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/demo.dir/flags.make
 
 CMakeFiles/demo.dir/main.cpp.o: CMakeFiles/demo.dir/flags.make
 CMakeFiles/demo.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/main.cpp.o -c /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ken/Documents/DIP_CV/class-demo/bgSub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/main.cpp.o -c /home/ken/Documents/DIP_CV/class-demo/bgSub/main.cpp
 
 CMakeFiles/demo.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/main.cpp > CMakeFiles/demo.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ken/Documents/DIP_CV/class-demo/bgSub/main.cpp > CMakeFiles/demo.dir/main.cpp.i
 
 CMakeFiles/demo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/main.cpp -o CMakeFiles/demo.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ken/Documents/DIP_CV/class-demo/bgSub/main.cpp -o CMakeFiles/demo.dir/main.cpp.s
 
 CMakeFiles/demo.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/demo.dir/main.cpp.o.provides.build: CMakeFiles/demo.dir/main.cpp.o
 
 CMakeFiles/demo.dir/src/bgSubDemo.cpp.o: CMakeFiles/demo.dir/flags.make
 CMakeFiles/demo.dir/src/bgSubDemo.cpp.o: ../src/bgSubDemo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/src/bgSubDemo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/bgSubDemo.cpp.o -c /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ken/Documents/DIP_CV/class-demo/bgSub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/src/bgSubDemo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/bgSubDemo.cpp.o -c /home/ken/Documents/DIP_CV/class-demo/bgSub/src/bgSubDemo.cpp
 
 CMakeFiles/demo.dir/src/bgSubDemo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/bgSubDemo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.cpp > CMakeFiles/demo.dir/src/bgSubDemo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ken/Documents/DIP_CV/class-demo/bgSub/src/bgSubDemo.cpp > CMakeFiles/demo.dir/src/bgSubDemo.cpp.i
 
 CMakeFiles/demo.dir/src/bgSubDemo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/bgSubDemo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.cpp -o CMakeFiles/demo.dir/src/bgSubDemo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ken/Documents/DIP_CV/class-demo/bgSub/src/bgSubDemo.cpp -o CMakeFiles/demo.dir/src/bgSubDemo.cpp.s
 
 CMakeFiles/demo.dir/src/bgSubDemo.cpp.o.requires:
 
@@ -162,7 +162,7 @@ demo: /usr/local/opencv-3.4.2/lib/libopencv_objdetect.so.3.4.2
 demo: /usr/local/opencv-3.4.2/lib/libopencv_imgproc.so.3.4.2
 demo: /usr/local/opencv-3.4.2/lib/libopencv_core.so.3.4.2
 demo: CMakeFiles/demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ken/Documents/DIP_CV/class-demo/bgSub/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -180,6 +180,6 @@ CMakeFiles/demo.dir/clean:
 .PHONY : CMakeFiles/demo.dir/clean
 
 CMakeFiles/demo.dir/depend:
-	cd /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ken/Documents/DIP_CV/class-demo/bgSub/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ken/Documents/DIP_CV/class-demo/bgSub /home/ken/Documents/DIP_CV/class-demo/bgSub /home/ken/Documents/DIP_CV/class-demo/bgSub/build /home/ken/Documents/DIP_CV/class-demo/bgSub/build /home/ken/Documents/DIP_CV/class-demo/bgSub/build/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demo.dir/depend
 
