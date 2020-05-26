@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub
+CMAKE_SOURCE_DIR = /home/ken/Documents/DIP_CV/project/bgSub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build
+CMAKE_BINARY_DIR = /home/ken/Documents/DIP_CV/project/bgSub/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ken/Documents/DIP_CV/project/bgSub/build/CMakeFiles /home/ken/Documents/DIP_CV/project/bgSub/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ken/Documents/DIP_CV/project/bgSub/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,32 +150,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/bgSubDemo.o: src/bgSubDemo.cpp.o
+src/bgSub.o: src/bgSub.cpp.o
 
-.PHONY : src/bgSubDemo.o
+.PHONY : src/bgSub.o
 
 # target to build an object file
-src/bgSubDemo.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bgSubDemo.cpp.o
-.PHONY : src/bgSubDemo.cpp.o
+src/bgSub.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bgSub.cpp.o
+.PHONY : src/bgSub.cpp.o
 
-src/bgSubDemo.i: src/bgSubDemo.cpp.i
+src/bgSub.i: src/bgSub.cpp.i
 
-.PHONY : src/bgSubDemo.i
+.PHONY : src/bgSub.i
 
 # target to preprocess a source file
-src/bgSubDemo.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bgSubDemo.cpp.i
-.PHONY : src/bgSubDemo.cpp.i
+src/bgSub.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bgSub.cpp.i
+.PHONY : src/bgSub.cpp.i
 
-src/bgSubDemo.s: src/bgSubDemo.cpp.s
+src/bgSub.s: src/bgSub.cpp.s
 
-.PHONY : src/bgSubDemo.s
+.PHONY : src/bgSub.s
 
 # target to generate assembly for a file
-src/bgSubDemo.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bgSubDemo.cpp.s
-.PHONY : src/bgSubDemo.cpp.s
+src/bgSub.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bgSub.cpp.s
+.PHONY : src/bgSub.cpp.s
 
 # Help Target
 help:
@@ -189,9 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/bgSubDemo.o"
-	@echo "... src/bgSubDemo.i"
-	@echo "... src/bgSubDemo.s"
+	@echo "... src/bgSub.o"
+	@echo "... src/bgSub.i"
+	@echo "... src/bgSub.s"
 .PHONY : help
 
 

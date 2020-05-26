@@ -6,5 +6,5 @@ CXX_FLAGS =  -O0 -Wall -g2 -ggdb   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/inc -isystem /usr/local/opencv-3.4.2/include -isystem /usr/local/opencv-3.4.2/include/opencv 
+CXX_INCLUDES = -I/home/ken/Documents/DIP_CV/project/bgSub/inc -isystem /usr/local/opencv-3.4.2/include -isystem /usr/local/opencv-3.4.2/include/opencv 
 

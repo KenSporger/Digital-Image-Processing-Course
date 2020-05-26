@@ -16,7 +16,7 @@ include_directories(${INC_DIR})
 find_package(OpenCV REQUIRED)
 
 add_executable(demo     main.cpp 
-                        src/bgSubDemo.cpp
+                        src/bgSub.cpp
             )
 
 

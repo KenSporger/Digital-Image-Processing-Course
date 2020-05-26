@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-../inc/bgSubDemo.h
+../inc/bgSub.h
 iostream
 -
 opencv2/opencv.hpp
 -
 
-/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/main.cpp
-bgSubDemo.h
-/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/bgSubDemo.h
+/home/ken/Documents/DIP_CV/project/bgSub/main.cpp
+bgSub.h
+/home/ken/Documents/DIP_CV/project/bgSub/bgSub.h
 
-/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.cpp
-bgSubDemo.h
-/home/ken/Documents/Digital-Image-Processing-Course/class-demo/bgSub/src/bgSubDemo.h
+/home/ken/Documents/DIP_CV/project/bgSub/src/bgSub.cpp
+bgSub.h
+/home/ken/Documents/DIP_CV/project/bgSub/src/bgSub.h
 
 /usr/local/opencv-3.4.2/include/opencv/cxcore.h
 opencv2/core/core_c.h
