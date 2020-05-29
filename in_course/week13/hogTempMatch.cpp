@@ -4,7 +4,8 @@
 using namespace cv;
 using namespace std;
 
-
+const int cellSize = 16;
+const int cellDims = 8;
 
 //获取HOG直方图
 //src: 灰度图像 
@@ -71,19 +72,9 @@ void calcuDistance(float *arrayA, float *arrayB, double &dist, int length)
 }
 
 
-int main()
+void hogTempMatch(const Mat &src, const Mat &temp, Rect &rec)
 {
-    Mat src = imread("img/metal.png", IMREAD_GRAYSCALE);
-    //读取模板
-    Mat temp = imread("img/metaltemp.png", IMREAD_GRAYSCALE);
-
-    // resize(src, src, Size(src.cols / 4, src.rows / 4));
-    // resize(temp, temp, Size(temp.cols / 4, temp.rows / 4));
-
-    const int cellSize = 16;
-    const int cellDims = 8;
-
-    //截取有效的模板区域
+       //截取有效的模板区域
     Mat tempValide = temp(Rect(0 ,0, (temp.cols / cellSize) * cellSize, (temp.rows / cellSize) * cellSize));
 
     //维度数
@@ -117,10 +108,77 @@ int main()
         }
     }
 
+    rec = Rect(minLoc.x, minLoc.y, tempValide.cols, tempValide.rows);
+
+}
+
+
+void hogDemo()
+{
+    Mat src = imread("img/metal.png", IMREAD_GRAYSCALE);
+    //读取模板
+    Mat temp = imread("img/metaltemp.png", IMREAD_GRAYSCALE);
+
+    //截取有效的模板区域
+    Mat tempValide = temp(Rect(0 ,0, (temp.cols / cellSize) * cellSize, (temp.rows / cellSize) * cellSize));
+
+    Rect roi;
+    hogTempMatch(src, tempValide, roi);
+
     Mat dst(src);
-    rectangle(dst, Rect(minLoc.x, minLoc.y, tempValide.cols, tempValide.rows), Scalar(255, 0, 0));
+    rectangle(dst, roi, Scalar(255, 0, 0));
 
     imshow("dst", dst);
     waitKey(0);
+    destroyAllWindows();
+}
+
+void pyramidHogDemo(int scale)
+{
+    Mat src = imread("img/metal.png", IMREAD_GRAYSCALE);
+    //读取模板
+    Mat temp = imread("img/metaltemp.png", IMREAD_GRAYSCALE);
+
+    Mat tempDown, srcDown;
+    resize(temp, tempDown, Size(temp.cols / scale, temp.rows / scale));
+    // pyrUp(tempTop, temp);
+    resize(src, srcDown, Size(src.cols / scale, src.rows / scale));
+    
+    //截取有效的模板区域
+    Mat tempValide = tempDown(Rect(0 ,0, (tempDown.cols / cellSize) * cellSize, (tempDown.rows / cellSize) * cellSize));
+
+    Rect roi;
+    hogTempMatch(srcDown, tempValide, roi);
+
+    tempValide = temp(Rect(0 ,0, (temp.cols / cellSize) * cellSize, (temp.rows / cellSize) * cellSize));
+    
+    roi.x *= scale;
+    roi.y *= scale;
+    roi.width = tempValide.cols * 2;
+    roi.height = tempValide.rows * 2;
+    Mat srcRect = src(roi);
+
+    Rect roi2;
+    hogTempMatch(srcRect, tempValide, roi2);
+
+    roi2.x += roi.x;
+    roi2.y += roi.y;
+
+    Mat dst(src);
+    rectangle(dst, roi2, Scalar(255, 0, 0));
+
+
+    imshow("dst", dst);
+    waitKey(0);
+    destroyAllWindows();
+
+}
+
+
+
+int main()
+{
+    // hogDemo();
+    pyramidHogDemo(4);
 
 }
