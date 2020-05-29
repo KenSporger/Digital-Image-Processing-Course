@@ -9,12 +9,10 @@ using namespace std;
 //获取HOG直方图
 //src: 灰度图像 
 //hist: 已经分配好的数组 
-//endSrcRow: src最大row, 剩余部分直接忽略
-//endSrcCol: src最大col， 剩余部分直接忽略
 //histDims: hist元素个数
 //cellSize：cell的大小，正方形
 //cellDims: 角度量化维数
-void getHogHist(const Mat &src, float *hist, int endSrcRow, int endSrcCol, int histDims,int cellSize, int cellDims)
+void getHogHist(const Mat &src, float *hist, int histDims ,int cellSize, int cellDims)
 {
     //清零
     memset(hist, 0, sizeof(float) * histDims);
@@ -33,9 +31,9 @@ void getHogHist(const Mat &src, float *hist, int endSrcRow, int endSrcCol, int h
 
     int index = 0;
     //将每个cell的直方图拼接成一个大直方图
-    for (int i = 0; i < endSrcRow; i += cellSize)
+    for (int i = 0; i < src.rows; i += cellSize)
     {
-        for (int j = 0; j < endSrcCol; j += cellSize)
+        for (int j = 0; j < src.cols; j += cellSize)
         {
             //cell的终止row和终止col
             int endCellRow = i + cellSize;
@@ -75,28 +73,54 @@ void calcuDistance(float *arrayA, float *arrayB, double &dist, int length)
 
 int main()
 {
-    Mat src = imread("img/metal.png");
+    Mat src = imread("img/metal.png", IMREAD_GRAYSCALE);
     //读取模板
-    Mat temp = imread("img/metaltemp.png");
+    Mat temp = imread("img/metaltemp.png", IMREAD_GRAYSCALE);
+
+    // resize(src, src, Size(src.cols / 4, src.rows / 4));
+    // resize(temp, temp, Size(temp.cols / 4, temp.rows / 4));
 
     const int cellSize = 16;
     const int cellDims = 8;
-    const int tempW = temp.cols;
-    const int tempH = temp.rows;
-    const int srcW = src.cols;
-    const int srcH = src.rows;\
 
-    const int histDims;
+    //截取有效的模板区域
+    Mat tempValide = temp(Rect(0 ,0, (temp.cols / cellSize) * cellSize, (temp.rows / cellSize) * cellSize));
+
+    //维度数
+    const int histDims = (tempValide.cols / cellSize) * (tempValide.rows / cellSize) * cellDims;
 
     float *tempHist = new float[histDims];
-    
-    Point oldP(0, 0);
-    Point newP(0, 0);
+    getHogHist(tempValide, tempHist, histDims, cellSize, cellDims);
 
-    for (int i = )
+    const int maxCol = src.cols - tempValide.cols;
+    const int maxRow = src.rows - tempValide.rows;
 
+    Mat srcRoi;
+    float *roiHist = new float[histDims];
+    Point minLoc(0, 0);
+    double minVal = DBL_MAX;
+    double curVal;
 
+    for (int i = 0; i < maxCol; i++)
+    {
+        for (int j = 0; j < maxRow; j++)
+        {
+            srcRoi = src(Rect(i , j, tempValide.cols, tempValide.rows));
+            getHogHist(srcRoi, roiHist, histDims, cellSize, cellDims);
+            calcuDistance(roiHist, tempHist, curVal, histDims);
+            if (curVal < minVal)
+            {
+                minVal = curVal;
+                minLoc.x = i;
+                minLoc.y = j;
+            }
+        }
+    }
 
+    Mat dst(src);
+    rectangle(dst, Rect(minLoc.x, minLoc.y, tempValide.cols, tempValide.rows), Scalar(255, 0, 0));
 
+    imshow("dst", dst);
+    waitKey(0);
 
 }
