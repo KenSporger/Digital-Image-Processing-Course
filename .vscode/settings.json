@@ -63,5 +63,6 @@
         "variant": "cpp",
         "*.ipp": "cpp",
         "forward_list": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }
