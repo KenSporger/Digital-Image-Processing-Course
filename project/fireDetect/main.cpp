@@ -1,12 +1,11 @@
 #include<iostream>
 #include<opencv2/opencv.hpp>
-#include "dft.h"
 
 using namespace std;
 using namespace cv;
 
 
-bool polynomial_curve_fit(std::vector<cv::Point>& key_point, int n, cv::Mat& A)
+bool polynomial_curve_fit(std::vector<cv::Point>& key_point, cv::Mat& A, int n, Point anchor)
 {
     //Number of key points
     int N = key_point.size();
@@ -25,6 +24,7 @@ bool polynomial_curve_fit(std::vector<cv::Point>& key_point, int n, cv::Mat& A)
         }
     }
 
+
     //构造矩阵Y
     cv::Mat Y = cv::Mat::zeros(n + 1, 1, CV_64FC1);
     for (int i = 0; i < n + 1; i++)
@@ -36,12 +36,19 @@ bool polynomial_curve_fit(std::vector<cv::Point>& key_point, int n, cv::Mat& A)
         }
     }
 
+
     A = cv::Mat::zeros(n + 1, 1, CV_64FC1);
     //求解矩阵A
-    cv::solve(X, Y, A, cv::DECOMP_LU);
+    cv::solve(X, Y, A, cv::DECOMP_SVD);
     return true;
 }
 
+
+template<typename T>
+RotatedRect operator+(const RotatedRect &rec, const Point_<T> &p)
+{
+    return RotatedRect(Point(rec.center.x + p.x, rec.center.y + p.y), rec.size, rec.angle);
+}
 
  //难点：
  //提取干净的水柱：
@@ -55,7 +62,7 @@ bool polynomial_curve_fit(std::vector<cv::Point>& key_point, int n, cv::Mat& A)
 int main()
 {
 	VideoCapture video;
-	video.open("../../../video/fire.mp4");
+	video.open("video/fire.mp4");
 
 	if (!video.isOpened())
 	{
@@ -68,7 +75,8 @@ int main()
 	Mat hsvMat;
 	Mat foregroundMask, foreground;
 	Mat background;
-	Mat labels, stats, centers, connect;
+	Mat labels, centers, connect;
+    Mat stats;
 
     //背景
 	video >> background;
@@ -79,11 +87,13 @@ int main()
 	model = createBackgroundSubtractorMOG2();
 	
 	Point2f vtx[4];
+    Point gun(173, 34);
 
 	uchar key = 0;
 	int cnt = 0;
 	while (key != 'q')
 	{
+        double start = static_cast<double>(cvGetTickCount());
 		video >> frame;
 
 		if (frame.empty())
@@ -91,54 +101,55 @@ int main()
 			cerr << "can't read frame !" << endl;
             return -1;
 		}
-
+        
 
 		cvtColor(frame, hsvMat, CV_BGR2HSV);
 		cvtColor(frame, gray, CV_BGR2GRAY);
-		// absdiff(gray, background, foregroundMask);
-        // threshold(foregroundMask, foregroundMask, 10, 255, THRESH_BINARY);
+
 
 		inRange(hsvMat, Scalar(0, 25, 100), Scalar(255, 150, 255), fireMask);
 		//预筛选
-        inRange(hsvMat, Scalar(0, 0, 150), Scalar(100, 25, 255), watermask);
+        inRange(hsvMat, Scalar(0, 0, 150), Scalar(140, 50, 255), watermask);
 
 
-		GaussianBlur(frame, frame, Size(3, 3), 1.0, 1.0);
-		model->apply(frame, foregroundMask);
+		// GaussianBlur(frame, frame, Size(3, 3), 1.0, 1.0);
+        absdiff(gray, background, foregroundMask);
+        medianBlur(foregroundMask, foregroundMask, 3);
+        threshold(foregroundMask, foregroundMask, 10, 255, THRESH_BINARY);
+        
+		// model->apply(frame, foregroundMask);
 		bitwise_and(foregroundMask, watermask, foregroundMask);
-        threshold(foregroundMask, foregroundMask, 200, 255, THRESH_BINARY);
+        // threshold(foregroundMask, foregroundMask, 200, 255, THRESH_BINARY);
         //膨胀获取较完整的轮廓
-        dilate(foregroundMask, foregroundMask, getStructuringElement(MORPH_RECT, Size(3, 3)));
+        // erode(foregroundMask, foregroundMask, getStructuringElement(MORPH_ELLIPSE, Size(3, 3)));
+        morphologyEx(foregroundMask, foregroundMask, MORPH_OPEN, getStructuringElement(MORPH_CROSS, Size(3, 3)));
+        // dilate(foregroundMask, foregroundMask, getStructuringElement(MORPH_RECT, Size(3, 3)));
 
-        // 连通域
-        // labels：大小同src，灰度值代表标号，0为背景
-        // stats： 每一行都是一个连通域的特征参数:x,y,width,height,area;利用x,y,width,height可以绘制包围矩形框
-        // centers：中心坐标
-        // stats和centers的第一行都是背景连通域
-        // cnt 连通域个数（包含背景
-        // if (++cnt >= 100)
-        // {
-        //     cnt = 100;
-        // }
-        vector<Point> points;
+
+        //实测0.4ms
         vector<vector<Point>> contours;
+        vector<Point> points;
+        vector<Point> real_points;
         Point2f vtx[4];
 		findContours(foregroundMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
         for (const auto &contour : contours)
         {
+            if (contourArea(contour) < 10) continue;
             RotatedRect waterRotateRect = minAreaRect(contour);
-            if (waterRotateRect.angle < -85 || 
-                waterRotateRect.angle > -25 ||
-                waterRotateRect.size.width > 10 ||
-                waterRotateRect.size.height / waterRotateRect.size.width < 2 
+            if (waterRotateRect.angle < -70 || 
+                waterRotateRect.angle > -10 ||
+                waterRotateRect.size.height / waterRotateRect.size.width < 0.7
                 ) 
                 continue;
 
-            waterRotateRect.points(vtx);
-            points.push_back(vtx[0]);
-            points.push_back(vtx[1]);
-            points.push_back(vtx[2]);
-            points.push_back(vtx[3]);
+
+            // waterRotateRect.points(vtx);
+            // for (const auto &p : contour)
+            {
+                // points.push_back(p);
+                points.push_back(waterRotateRect.center);
+                // cout << waterRotateRect.center << endl;
+            }
             // for (int j = 0; j < 4; j++)
             // {
             //     line(frame, vtx[j], vtx[(j+1) % 4], Scalar(255, 0, 0));
@@ -146,51 +157,52 @@ int main()
 
         }
 
-        if (points.size() < 12)
-            continue;
-
-
-
-		// //每次都要清零，copyto会叠加上次的结果
-		// foreground = Scalar::all(0);
-		// frame.copyTo(foreground, foregroundMask);
-
-
-        // // Rect box;
-        // vector<Point> points;
-        // for (int i = 1; i < stats.rows; i++)
-        // {
-        //     // box.x = stats.at<int>(i, 0);
-        //     // box.y = stats.at<int>(i, 1);
-        //     // box.width = stats.at<int>(i, 2);
-        //     // box.height = stats.at<int>(i, 3);
-        //     if (stats.at<float>(i, 4) > )
-
-        //     // rectangle(frame, box, CV_RGB(255, 255, 255));
-        // }
-
-		
-        // for (int i = 0; i < foregroundMask.rows; i++)
-        // {
-        //     for (int j = 0; j < foregroundMask.cols; j++)
-        //     {
-        //         if (foregroundMask.at<uchar>(i,j))
-        //             points.push_back(Point(j, i));
-        //     }
-        // }
-        
-        Mat A;
-		polynomial_curve_fit(points, 2, A);
-        std::vector<cv::Point> points_fitted;
-
-        for (int x = 0; x < 1000; x++)
+        sort(points.begin(), points.end(), [](const Point &p1, const Point &p2){
+            return p1.x < p2.x;
+        });
+        real_points.push_back(gun);
+        float rate = 0;
+        for (const auto &p : points)
         {
-            double y = A.at<double>(0, 0) + A.at<double>(1, 0) * x +
-                A.at<double>(2, 0)*std::pow(x, 2) + A.at<double>(3, 0)*std::pow(x, 3);
-
-            points_fitted.push_back(cv::Point(x, y));
+            if (real_points.size() == 1)
+            {
+                rate = (gun.y - p.y) / (gun.x - p.x);
+                real_points.push_back(p);
+            }
+            else
+            {
+                float _rate = (float)(real_points.back().y - p.y) / (real_points.back().x - p.x);
+                if ((_rate - rate) < 1 && (_rate - rate) > 0)
+                {
+                    real_points.push_back(p);
+                    rate = _rate;
+                }
+            }
+            
         }
-        polylines(frame, points_fitted, false, cv::Scalar(0, 255, 0), 3, 8, 0);
+
+        for (const auto &p : real_points)
+        {
+            circle(frame, p, 1, Scalar(255, 0, 0));
+        }
+
+        if (real_points.size() > 4)
+        {
+            Mat A;
+            polynomial_curve_fit(real_points, A, 2, gun);
+            std::vector<cv::Point> points_fitted;
+            for (int x = gun.x ; x < frame.cols; x++)
+            {
+                double y = A.at<double>(0, 0) + A.at<double>(1, 0) * x +
+                    A.at<double>(2, 0)*std::pow(x, 2) + A.at<double>(3, 0)*std::pow(x, 3);
+
+                if (y < gun.y || y >= frame.rows) continue;
+                points_fitted.push_back(cv::Point(x, y));
+            }
+            polylines(frame, points_fitted, false, cv::Scalar(0, 255, 0), 2, 8, 0);
+        }
+        double time = ((double)cvGetTickCount() - start) / cvGetTickFrequency();
+        cout << "processing time:" << time / 1000 << "ms" << endl;
 
 
 		// vector<vector<Point>> contours;
@@ -205,6 +217,7 @@ int main()
 		// 	rectangle(frame, box, Scalar(255, 0, 0));
 		// }
 
+        circle(foregroundMask, gun, 4, Scalar(255), 2);
 		imshow("mask", foregroundMask);
 		// imshow("fire", fireMask);
         // imshow("dst", dst);
