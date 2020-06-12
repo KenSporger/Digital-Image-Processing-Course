@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ken/Documents/Digital-Image-Processing-Course/project/armor/main.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/armor/build/CMakeFiles/demo.dir/main.cpp.o"
-  "/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/ArmorDetector.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/armor/build/CMakeFiles/demo.dir/src/ArmorDetector.cpp.o"
+  "/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/armorDetector.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/armor/build/CMakeFiles/demo.dir/src/armorDetector.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

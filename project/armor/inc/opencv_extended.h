@@ -1,6 +1,7 @@
-#ifndef __OPENCV_EXTENDED_H
-#define __OPENCV_EXTENDED_H
+#ifndef _OPENCV_EXTENDED_H
+#define _OPENCV_EXTENDED_H
 
+#include<iostream>
 #include<opencv2/opencv.hpp>
 
 namespace cv
@@ -27,6 +28,7 @@ const Scalar WHITE(255, 255, 255);
 
 //模板函数
 //计算两点之间的欧式距离
+//模板函数不能分离式声明和定义（声明与定义都在.h里），而普通函数的定义不能在.h中
 template<typename T>
 float caluDistance(const Point_<T> &pt1, const Point_<T> &pt2)    
 {
@@ -76,7 +78,8 @@ const cv::Rect_<T1> scaleRect(const cv::Rect_<T1>& rect, const cv::Vec<T2,2> sca
 */
 
 //旋转矩阵绘制
-void drawRotateRect(Mat &img, const RotatedRect &rec, const Scalar &color)
+template <typename Rectype>
+void drawRotateRect(Mat &img, const Rectype &rec, const Scalar &color)
 {
 	Point2f vtx[4];
 	rec.points(vtx);
@@ -166,6 +169,70 @@ void showContours(const std::string& windowName,
 		cv::waitKey(waitTime);
 	}
 }
+
+
+
+class TimeSummary
+{
+	public:
+		TimeSummary()
+		{
+			time = 0;
+			sum = 0;
+			start = 0;
+			end = 0;			
+		}
+		TimeSummary(const String &_text)
+		{
+			text = _text;
+			time = 0;
+			sum = 0;
+			start = 0;
+			end = 0;
+		}
+		
+		double clockStart()
+		{
+			return start = static_cast<double>(cvGetTickCount());
+		}
+		
+		double clockEnd()
+		{
+			end = static_cast<double>(cvGetTickCount());
+			time = (end - start) / cvGetTickFrequency();
+			sum += time;
+			return end;
+		}
+
+		void clear()
+		{
+			time = 0;
+			sum = 0;
+			start = 0;
+			end = 0;			
+		}
+
+		void printTime()
+		{
+			std::cout << text << "时间: "  << time / 1000 <<  "ms" <<std::endl;
+		}
+
+		void printSum()
+		{
+			std::cout << text << "时间: "  << sum / 1000<<  "ms" <<std::endl;
+		}
+
+	public:
+		String text;
+		double 	time;
+		double  sum;
+	
+	private:
+		double start;
+		double end;
+
+
+};
 
 
 }

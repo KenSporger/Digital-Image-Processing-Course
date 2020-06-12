@@ -6,11 +6,17 @@
 
 #IncludeRegexTransform: 
 
-../inc/ArmorDetector.h
+../inc/armorDetector.h
+iostream
+-
 opencv2/opencv.hpp
 -
+opencv_extended.h
+../inc/opencv_extended.h
 
 ../inc/opencv_extended.h
+iostream
+-
 opencv2/opencv.hpp
 -
 
@@ -19,14 +25,12 @@ iostream
 -
 opencv2/opencv.hpp
 -
-ArmorDetector.h
-/home/ken/Documents/Digital-Image-Processing-Course/project/armor/ArmorDetector.h
+armorDetector.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/armor/armorDetector.h
 
-/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/ArmorDetector.cpp
-ArmorDetector.h
-/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/ArmorDetector.h
-opencv_extended.h
-/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/opencv_extended.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/armorDetector.cpp
+armorDetector.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/armorDetector.h
 
 /usr/local/opencv-3.4.2/include/opencv/cxcore.h
 opencv2/core/core_c.h

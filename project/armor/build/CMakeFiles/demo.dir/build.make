@@ -81,40 +81,40 @@ CMakeFiles/demo.dir/main.cpp.o.provides: CMakeFiles/demo.dir/main.cpp.o.requires
 CMakeFiles/demo.dir/main.cpp.o.provides.build: CMakeFiles/demo.dir/main.cpp.o
 
 
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.o: CMakeFiles/demo.dir/flags.make
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.o: ../src/ArmorDetector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ken/Documents/Digital-Image-Processing-Course/project/armor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/src/ArmorDetector.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/ArmorDetector.cpp.o -c /home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/ArmorDetector.cpp
+CMakeFiles/demo.dir/src/armorDetector.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/src/armorDetector.cpp.o: ../src/armorDetector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ken/Documents/Digital-Image-Processing-Course/project/armor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/src/armorDetector.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/armorDetector.cpp.o -c /home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/armorDetector.cpp
 
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/ArmorDetector.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/ArmorDetector.cpp > CMakeFiles/demo.dir/src/ArmorDetector.cpp.i
+CMakeFiles/demo.dir/src/armorDetector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/armorDetector.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/armorDetector.cpp > CMakeFiles/demo.dir/src/armorDetector.cpp.i
 
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/ArmorDetector.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/ArmorDetector.cpp -o CMakeFiles/demo.dir/src/ArmorDetector.cpp.s
+CMakeFiles/demo.dir/src/armorDetector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/armorDetector.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ken/Documents/Digital-Image-Processing-Course/project/armor/src/armorDetector.cpp -o CMakeFiles/demo.dir/src/armorDetector.cpp.s
 
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.requires:
+CMakeFiles/demo.dir/src/armorDetector.cpp.o.requires:
 
-.PHONY : CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.requires
+.PHONY : CMakeFiles/demo.dir/src/armorDetector.cpp.o.requires
 
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.provides: CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.requires
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.provides.build
-.PHONY : CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.provides
+CMakeFiles/demo.dir/src/armorDetector.cpp.o.provides: CMakeFiles/demo.dir/src/armorDetector.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/armorDetector.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/src/armorDetector.cpp.o.provides
 
-CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.provides.build: CMakeFiles/demo.dir/src/ArmorDetector.cpp.o
+CMakeFiles/demo.dir/src/armorDetector.cpp.o.provides.build: CMakeFiles/demo.dir/src/armorDetector.cpp.o
 
 
 # Object files for target demo
 demo_OBJECTS = \
 "CMakeFiles/demo.dir/main.cpp.o" \
-"CMakeFiles/demo.dir/src/ArmorDetector.cpp.o"
+"CMakeFiles/demo.dir/src/armorDetector.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
 demo: CMakeFiles/demo.dir/main.cpp.o
-demo: CMakeFiles/demo.dir/src/ArmorDetector.cpp.o
+demo: CMakeFiles/demo.dir/src/armorDetector.cpp.o
 demo: CMakeFiles/demo.dir/build.make
 demo: /usr/local/opencv-3.4.2/lib/libopencv_stitching.so.3.4.2
 demo: /usr/local/opencv-3.4.2/lib/libopencv_superres.so.3.4.2
@@ -171,7 +171,7 @@ CMakeFiles/demo.dir/build: demo
 .PHONY : CMakeFiles/demo.dir/build
 
 CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/main.cpp.o.requires
-CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/ArmorDetector.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/armorDetector.cpp.o.requires
 
 .PHONY : CMakeFiles/demo.dir/requires
 

@@ -1,12 +1,14 @@
-#ifndef __ARMORDETECTOR_H
-#define __ARMORDETECTOR_H
+#ifndef _ARMORDETECTOR_H
+#define _ARMORDETECTOR_H
 
+#include<iostream>
 #include<opencv2/opencv.hpp>
+#include "opencv_extended.h"
 
 // #define DEBUG_PRETREATMENT
 // #define DEBUG_DETECTION
 #define SHOW_RESULT
-// #define TIME_COUNT
+#define TIME_COUNT
 
 //RM空间包裹
 namespace rm
@@ -153,6 +155,14 @@ public:
 class ArmorDetector
 {
 
+#if defined(TIME_COUNT)
+public:
+    cv::cvex::TimeSummary preProcessTS;
+    cv::cvex::TimeSummary findContourTS;
+    cv::cvex::TimeSummary contourFilterTS;
+    cv::cvex::TimeSummary armorFilterTS;
+#endif
+
 public:
     //无参数初始化
     ArmorDetector();
@@ -169,6 +179,34 @@ public:
     //返回攻击装甲的角点
     const std::vector<cv::Point2f> getArmorVertex() const;
 
+#if defined(TIME_COUNT)
+    void timeInit()
+    {
+        preProcessTS.text = "预处理";
+        findContourTS.text = "查找轮廓";
+        contourFilterTS.text = "灯条筛选";
+        armorFilterTS.text = "装甲筛选";
+    }
+    
+    void printEchoTimeSummary()
+    {
+       std::cout << "-------------echo Time Summary------------" << std::endl;
+       preProcessTS.printTime();
+       findContourTS.printTime();
+       contourFilterTS.printTime();
+       armorFilterTS.printTime();
+    }
+
+    void printHistroySummary()
+    {
+       std::cout << "-------------Histroy Time Summary------------" << std::endl;
+       preProcessTS.printSum();
+       findContourTS.printSum();
+       contourFilterTS.printSum();
+       armorFilterTS.printSum();        
+    }
+#endif
+
  
 #if defined(SHOW_RESULT)
     //显示识别结果
@@ -176,6 +214,7 @@ public:
     {
 	    imshow(_debugWindowName, _debugImg);
     }
+
 #endif 
 
 
@@ -208,7 +247,10 @@ private:
     cv::Mat _debugImg;
 #endif
 
+
 };
+
+
 
 cv::RotatedRect &adjustRec(cv::RotatedRect &rec);
 

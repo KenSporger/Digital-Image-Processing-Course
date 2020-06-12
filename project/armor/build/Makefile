@@ -150,32 +150,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/ArmorDetector.o: src/ArmorDetector.cpp.o
+src/armorDetector.o: src/armorDetector.cpp.o
 
-.PHONY : src/ArmorDetector.o
+.PHONY : src/armorDetector.o
 
 # target to build an object file
-src/ArmorDetector.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/ArmorDetector.cpp.o
-.PHONY : src/ArmorDetector.cpp.o
+src/armorDetector.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/armorDetector.cpp.o
+.PHONY : src/armorDetector.cpp.o
 
-src/ArmorDetector.i: src/ArmorDetector.cpp.i
+src/armorDetector.i: src/armorDetector.cpp.i
 
-.PHONY : src/ArmorDetector.i
+.PHONY : src/armorDetector.i
 
 # target to preprocess a source file
-src/ArmorDetector.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/ArmorDetector.cpp.i
-.PHONY : src/ArmorDetector.cpp.i
+src/armorDetector.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/armorDetector.cpp.i
+.PHONY : src/armorDetector.cpp.i
 
-src/ArmorDetector.s: src/ArmorDetector.cpp.s
+src/armorDetector.s: src/armorDetector.cpp.s
 
-.PHONY : src/ArmorDetector.s
+.PHONY : src/armorDetector.s
 
 # target to generate assembly for a file
-src/ArmorDetector.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/ArmorDetector.cpp.s
-.PHONY : src/ArmorDetector.cpp.s
+src/armorDetector.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/armorDetector.cpp.s
+.PHONY : src/armorDetector.cpp.s
 
 # Help Target
 help:
@@ -189,9 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/ArmorDetector.o"
-	@echo "... src/ArmorDetector.i"
-	@echo "... src/ArmorDetector.s"
+	@echo "... src/armorDetector.o"
+	@echo "... src/armorDetector.i"
+	@echo "... src/armorDetector.s"
 .PHONY : help
 
 

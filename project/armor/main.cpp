@@ -1,6 +1,6 @@
 #include<iostream>
 #include<opencv2/opencv.hpp>
-#include "ArmorDetector.h"
+#include "armorDetector.h"
 
 using namespace std;
 using namespace cv;
@@ -60,6 +60,9 @@ void SEUDetect()
     ArmorParam param;
     ArmorDetector Arm(param);
     Arm.setEnemyColor(ARMOR_BLUE);
+#if defined(TIME_COUNT)
+    Arm.timeInit();
+#endif
     VideoCapture video("../../../video/armorblue.mp4");
     if (!video.isOpened())
     {
@@ -78,11 +81,17 @@ void SEUDetect()
         
         Arm.loadImg(frame);
         Arm.detect();
+#if defined(TIME_COUNT)
+    Arm.printEchoTimeSummary();
+#endif
 #ifdef SHOW_RESULT
         Arm.showDetectedArmor();
 #endif 
         key = waitKey(30);
     }
+#if defined(TIME_COUNT)
+    Arm.printHistroySummary();
+#endif
 }
 
 int main()

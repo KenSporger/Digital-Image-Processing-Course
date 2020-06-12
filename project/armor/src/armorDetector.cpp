@@ -1,5 +1,5 @@
-#include "ArmorDetector.h"
-#include "opencv_extended.h"
+#include "armorDetector.h"
+
 
 using namespace std;
 using namespace cv;
@@ -96,6 +96,9 @@ int ArmorDetector::detect()
     /*
     * 一、预处理(二值化获取灯条掩码)
     */
+#if defined(TIME_COUNT)
+    preProcessTS.clockStart();
+#endif
     vector<Mat> channels;
     //rb通道差
     split(_roiImg, channels);
@@ -106,7 +109,9 @@ int ArmorDetector::detect()
     //膨胀获取完整的灯条
     Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
     dilate(binBrightImg, binBrightImg, element);
-
+#if defined(TIME_COUNT)
+    preProcessTS.clockEnd();
+#endif
 #if defined(DEBUG_PRETREATMENT)
     cout << "显示预处理二值结果..." << endl;
     imshow("binBrightImg", binBrightImg);
@@ -115,16 +120,23 @@ int ArmorDetector::detect()
     /*
     * 二、查找灯条轮廓,并进行筛选
     */
+#if defined(TIME_COUNT)
+    findContourTS.clockStart();
+#endif
     vector<vector<Point>> lightContours;
     //只检测外轮廓，仅保存轮廓的拐点
     findContours(binBrightImg, lightContours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
-
+#if defined(TIME_COUNT)
+    findContourTS.clockEnd();
+#endif
 #if defined(DEBUG_DETECTION)
     //预览所有轮廓
     cout << "显示待筛选灯条轮廓..." << endl;
     cvex::showContours(_debugWindowName, _debugImg, _debugImg, lightContours, cvex::YELLOW, 0, _roi.tl());
 #endif
-
+#if defined(TIME_COUNT)
+    contourFilterTS.clockStart();
+#endif
     for (const auto &contour : lightContours)
     {
         //计算轮廓本身的面积
@@ -187,7 +199,9 @@ int ArmorDetector::detect()
 
     }
 
-
+#if defined(TIME_COUNT)
+    contourFilterTS.clockEnd();
+#endif
     //未检测到灯条
     if (lightInfos.empty())
     {
@@ -211,6 +225,9 @@ int ArmorDetector::detect()
     /*
     * 三、同装甲灯条匹配
     */
+#if defined(TIME_COUNT)
+    armorFilterTS.clockStart();
+#endif
    //按X坐标升序，lambda函数
     sort(lightInfos.begin(), lightInfos.end(), [](const LightDescriptor &l1, const LightDescriptor &l2)->bool{
         return l1.center.x < l2.center.x;
@@ -265,6 +282,9 @@ int ArmorDetector::detect()
             break;
         }
     }
+#if defined(TIME_COUNT)
+    armorFilterTS.clockEnd();
+#endif
 
     //未识别到装甲
     if (_armors.empty())
@@ -345,35 +365,6 @@ int ArmorDetector::detect()
 #endif
     return _status = ARMOR_LOCAL;
 
-}
-
-cv::RotatedRect &adjustRec(cv::RotatedRect &rec)
-{
-	using std::swap;
-
-	float &width = rec.size.width;
-	float &height = rec.size.height;
-	float &angle = rec.angle;
-
-	while (angle >= 90.0)
-		angle -= 180.0;
-	while (angle < -90.0)
-		angle += 180.0;
-
-	{
-		if (angle >= 45.0)
-		{
-			swap(width, height);
-			angle -= 90.0;
-		}
-		else if (angle < -45.0)
-		{
-			swap(width, height);
-			angle += 90.0;
-		}
-	}
-
-	return rec;
 }
 
 
@@ -468,6 +459,35 @@ void ArmorDescriptor::getFrontImg(const Mat& grayImg)
 }
 
 
+
+cv::RotatedRect &adjustRec(cv::RotatedRect &rec)
+{
+	using std::swap;
+
+	float &width = rec.size.width;
+	float &height = rec.size.height;
+	float &angle = rec.angle;
+
+	while (angle >= 90.0)
+		angle -= 180.0;
+	while (angle < -90.0)
+		angle += 180.0;
+
+	{
+		if (angle >= 45.0)
+		{
+			swap(width, height);
+			angle -= 90.0;
+		}
+		else if (angle < -45.0)
+		{
+			swap(width, height);
+			angle += 90.0;
+		}
+	}
+
+	return rec;
+}
 
 }
 
