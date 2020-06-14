@@ -41,7 +41,6 @@ public:
     //预处理
     int brightness_threshold;
     float light_rect_extend_ratio;
-    float light_max_height_diff_ratio;
 
     
     //light
@@ -50,6 +49,7 @@ public:
     float light_min_rectangularity;
 
     //pair
+    float light_max_height_diff_ratio;
     float light_max_angle_diff;
     float light_max_y_diff_ratio;
     float light_min_x_diff_ratio;

@@ -1,0 +1,205 @@
+<mxfile host="" modified="2020-06-14T12:54:18.666Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.44.2 Chrome/78.0.3904.130 Electron/7.1.11 Safari/537.36" etag="-73v7WlUsCW9Tam5XhIH" version="13.1.3">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="2185" dy="1950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;初始化ArmorParam&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="-330" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.462;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="750.1199999999999" y="-330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="START" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="-460" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;利用param初始化&lt;span&gt;ArmorDetector&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="-160" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;ArmorDetector::&lt;/span&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170)&quot;&gt;setEnemyColor&lt;/span&gt;设置敌军颜色&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="10" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="38">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="930" y="-831.6666666666666" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="920" y="205"/>
+                            <mxPoint x="920" y="-880"/>
+                            <mxPoint x="1150" y="-880"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;ArmorDetector::&lt;/span&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170) ; background-color: rgb(30 , 30 , 30) ; font-size: 14px ; font-weight: 600&quot;&gt;loadImg&lt;/span&gt;&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;font color=&quot;#dcdcaa&quot;&gt;加载帧&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="180" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="13" target="15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;ArmorDetector::&lt;/span&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170) ; background-color: rgb(30 , 30 , 30) ; font-size: 14px ; font-weight: 600&quot;&gt;detect&lt;/span&gt;&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;font color=&quot;#dcdcaa&quot;&gt;装甲检测&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="350" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="ＥＮＤ" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="460" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="ArmorParam" style="swimlane;startSize=23;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="-1050" width="350" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;    //预处理相关&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;二值化的阈值&lt;span style=&quot;color: #6a9955&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;int&lt;/span&gt; brightness_threshold;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;基于旋转包围框生成灯条外接矩形的扩展倍数&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_rect_extend_ratio;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;    //light&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#6a9955&quot;&gt;灯条轮廓包围的面积&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_min_area;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;灯条旋转包围框的宽长比&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_min_ratio;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;灯条旋转包围框的矩形度&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_min_rectangularity;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;    //pair&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;灯条对的角度差&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_max_angle_diff;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;灯条的y坐标差相对值&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_max_y_diff_ratio;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;灯条的x坐标差相对值&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; light_min_x_diff_ratio;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;灯条长度差相对值&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: rgb(86 , 156 , 214)&quot;&gt;float&lt;/span&gt;&amp;nbsp;light_max_height_diff_ratio;&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;    //armor&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;装甲中心距离相对值&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; armor_max_dist_ratio;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; armor_min_dist_ratio;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;大小装甲中心距离相对值&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; armor_big_armor_ratio;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; armor_small_armor_ratio;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;    //score&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; area_normalized_base;&lt;/div&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; sight_offset_normalized_base;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="30">
+                    <mxGeometry x="25" y="50" width="300" height="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="初始化&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;_param&lt;br&gt;初始化检测区域&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;_roi为全局帧&lt;br&gt;初始化&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;_status为&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;ARMOR_NONE&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+                    <mxGeometry x="110" y="-90" width="340" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=none;endArrow=none;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" target="34" parent="1" source="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="330" y="-130" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="38" target="46">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="&lt;span&gt;当前&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;_status　＝＝&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;ARMOR_LOCAL&lt;/span&gt;&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;　？&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="-760" width="380" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="39" target="41">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;获取_targetArmor在_srcImg里的位置区域&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+                    <mxGeometry x="1030" y="-620" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=none;endArrow=none;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" target="39" parent="1" source="38">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1151" y="-660" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;font color=&quot;#9cdcfe&quot;&gt;将区域扩大２倍作为检测区域_roi和_roiImg&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+                    <mxGeometry x="1030" y="-520" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="true" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="1162" y="-659" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;font color=&quot;#9cdcfe&quot;&gt;将整张图_srcImg作为_roi和_roiImg&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="-670" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="false&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="1397" y="-737" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="49" target="52">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="rb通道差并二值化，再膨胀获取完整灯条掩码（预处理）&lt;br&gt;（原ＳＥＵ算法是直接灰度化，在灯条查找中再通道差）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="430" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #dcdcaa&quot;&gt;findContours查找灯条轮廓&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="525" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="54" target="56">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="54" target="65">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #dcdcaa&quot;&gt;对每一条轮廓进行特征筛选&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="620" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="56" target="58">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="889.9999999999995" y="549.9999999999995" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="56" target="80">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;通过筛选的灯条加入到灯条描述器lightInfos&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="720" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="LightDescriptor" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="980" y="490" width="250" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212)&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #569cd6&quot;&gt;旋转包围框的宽（短边）&lt;/span&gt;&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; width;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(86 , 156 , 214)&quot;&gt;旋转包围框的长（长边）&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; length;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(86 , 156 , 214)&quot;&gt;旋转包围框的角度&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; angle;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(86 , 156 , 214)&quot;&gt;旋转包围框的面积&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #569cd6&quot;&gt;float&lt;/span&gt; area;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(86 , 156 , 214)&quot;&gt;旋转包围框的中心坐标&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #4ec9b0&quot;&gt;cv&lt;/span&gt;::Point2f center;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="58">
+                    <mxGeometry x="50" y="60" width="170" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font color=&quot;#569cd6&quot;&gt;可用旋转矩阵进行对象构造&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="58">
+                    <mxGeometry x="45" y="280" width="180" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="65" target="68">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #dcdcaa&quot;&gt;contourArea计算轮廓本身面积&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选1：椭圆拟合需要至少6个点&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(106 , 153 , 85)&quot;&gt;筛选2：轮廓面积&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-420" y="80" width="350" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="68" target="71">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #dcdcaa&quot;&gt;fitEllipse获取旋转包围矩形，&lt;/span&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170)&quot;&gt;adjustRec&lt;/span&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170)&quot;&gt;对角度进行调整&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-420" y="210" width="350" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="71" target="73">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选3:&lt;/span&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170)&quot;&gt;旋转包围矩形&lt;/span&gt;&lt;span style=&quot;color: rgb(106 , 153 , 85)&quot;&gt;宽长比&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选4:&lt;/span&gt;&lt;span style=&quot;color: rgb(220 , 220 , 170)&quot;&gt;旋转包围矩形&lt;/span&gt;&lt;span style=&quot;color: rgb(106 , 153 , 85)&quot;&gt;矩形度&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-420" y="335" width="350" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="73" target="75">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font color=&quot;#6a9955&quot;&gt;扩展旋转矩形的长宽，并检查是否溢出_roiImg&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-420" y="460" width="350" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="75" target="78">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font color=&quot;#6a9955&quot;&gt;获取旋转包围矩形的外接矩形&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-420" y="580" width="350" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="&lt;div style=&quot;background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font color=&quot;#6a9955&quot;&gt;根据外接矩形和旋转矩阵构造灯条的掩码图像&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-420" y="700" width="350" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="80" target="82">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;对灯条按Ｘ坐标排序&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="820" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="82" target="84">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;装甲（灯条对）特征筛选：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选1：角度差&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选2：长度差相对值&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选3：中心距相对值&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选4：中心纵向距离相对值&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;筛选５：中心横向距离相对值&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #6a9955&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="920" width="350" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="84" target="86">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;装甲类型判别&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="1109" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;装甲分数结算（不太理解）、装甲角点计算，加入&lt;/span&gt;&lt;span style=&quot;color: rgb(78 , 201 , 176)&quot;&gt;ArmorDescriptor&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="1210" width="350" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

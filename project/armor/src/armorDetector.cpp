@@ -165,6 +165,8 @@ int ArmorDetector::detect()
         lightRotateRect.size.width *= _param.light_rect_extend_ratio;
         lightRotateRect.size.height *= _param.light_rect_extend_ratio;
 
+        //以下由于原算法中一开始使用灰度化，灯条检测最后才用ＲＢ通道差，
+        //所以这里获取外接矩形无用
         //获取外接矩形
         Rect lightBoundRect = lightRotateRect.boundingRect();
         //与当前兴趣区域交集(两个矩形重叠的矩形)
@@ -269,7 +271,7 @@ int ArmorDetector::detect()
             //距离/灯长不随距离远近而明显变化，因此可作为装甲板大小的衡量标准
             int armorType = dist_ratio > _param.armor_big_armor_ratio ? BIG_ARMOR : SMALL_ARMOR;
             
-            //没看懂
+            //rotationScore没看懂
             float ratiOff = (armorType == BIG_ARMOR) ? 
                             max(_param.armor_big_armor_ratio - dist_ratio, float(0)) : 
                             max(_param.armor_small_armor_ratio - dist_ratio, float(0));
