@@ -13,11 +13,13 @@ using namespace std;
 //只读算法
 void readOnlyAlthm()
 {
-    list<int> l1 = {1,2,3,4,5};
+    vector<int> l1 = {1,2,3,4,5};
 
-    //查找，返回地址指针,未找到返回end
-    auto res1 = find(l1.begin(), l1.begin(), 4);
-    auto res2 = find(l1.begin(), l1.begin(), 10);
+    //查找，返回迭代器指针,未找到返回end
+    auto res1 = find(l1.begin(), l1.end(), 4);
+    auto res2 = find(l1.begin(), l1.end(), 10);
+    //迭代器相减获取元素个数（好像list的迭代器不能相减？）
+    cout << "location for 4: " << res1 - l1.begin() << endl;
     cout << "find 4: " << ((res1 == l1.end()) ? 0 : 1) << endl;
     cout << "find 10: " << ((res2 == l1.end()) ? 0 : 1) << endl;
 
@@ -111,9 +113,9 @@ void elimDups()
 int main()
 {
     
-    // readOnlyAlthm();
+    readOnlyAlthm();
     // writeAlthm();
-    elimDups();
+    // elimDups();
 
 
 }
