@@ -8,9 +8,9 @@ using namespace std;
 //最简单的背景差分
 void bgSubDemo()
 {
-    // VideoCapture video("../../../video/vtest.avi");
-    VideoCapture video;
-    video.open(0);
+    VideoCapture video("../../../video/fire.mp4");
+    // VideoCapture video;
+    // video.open(0);
 
     if (!video.isOpened())
     {
@@ -58,7 +58,8 @@ void bgSubDemo()
 void gaussianBgSubDemo(float weight = 2, int bg_num = 100)
 {
     VideoCapture video;
-    video.open(0);
+    // video.open(0);
+    video.open("../../../video/fire.mp4");
 
     if (!video.isOpened())
     {
@@ -162,7 +163,7 @@ int opencvBgSubDemo(int method = 0)
 int main()
 {
     // bgSubDemo();
-    // gaussianBgSubDemo(3);
+    gaussianBgSubDemo(10, 50);
     // opencvBgSubDemo();
     return 0;
 }

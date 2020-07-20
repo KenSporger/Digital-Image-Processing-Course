@@ -36,13 +36,16 @@ void readOnlyAlthm()
     vector<string> vec1 = {"hello", " ", "world", " !"};
     //累加，返回累加结果（累加操作取决于对象：字符串凭借、数字求和）
     string sum1 = accumulate(vec1.cbegin(), vec1.cend(), string(""));
+
+    vector<double> vd = {1.1, 2, 3, 4, 5};
+    //初值必须转换为double，否则损失精度
+    double sum2 = accumulate(vd.cbegin(), vd.cend(), double(0));
     cout << sum1 << endl;
+    cout << sum2 << endl;
 
     //相等，判断序列元素是否都相等(前提：ia的长度>=l1的长度)，返回bool
     bool flag = equal(l1.begin(), l1.end(), begin(ia));
     cout << "equal :" << flag << endl;
-
-
 }
 
 //写容器算法

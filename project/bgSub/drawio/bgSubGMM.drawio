@@ -1,0 +1,305 @@
+<mxfile host="" modified="2020-06-03T06:32:47.408Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.44.2 Chrome/78.0.3904.130 Electron/7.1.11 Safari/537.36" etag="aEb6DknlqUHBxt1tWpJ4" version="13.1.3">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="1945" dy="1950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="新建bgSubGMM类" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-740" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="99" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="定义&lt;span style=&quot;color: rgb(86 , 156 , 214) ; background-color: rgb(30 , 30 , 30) ; font-size: 14px ; font-weight: 600&quot;&gt;protected成员变量&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-660" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30) ; line-height: 19px&quot;&gt;nframes 帧计数&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="362" y="-722" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="61" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="-710" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;history更新帧数&amp;nbsp;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="362" y="-680" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="65" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="290" y="-660" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="68" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;varThL 背景模型匹配阈值&amp;nbsp;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="332" y="-640" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="68" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-583" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="70" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;varThH 背景像素阈值&amp;nbsp;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="347" y="-600" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="70" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-590" as="sourcePoint"/>
+                        <mxPoint x="303" y="-610" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;backgroundRatio 背景模型累积权重&amp;nbsp;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="298" y="-560" width="280" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="73" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-590" as="sourcePoint"/>
+                        <mxPoint x="303" y="-565" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;nmixtures 最大模型数量&amp;nbsp;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="337" y="-515" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="76" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-635" as="sourcePoint"/>
+                        <mxPoint x="303" y="-520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="78" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;learningRate 学习率&amp;nbsp;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="347" y="-760" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="78" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="-640" as="sourcePoint"/>
+                        <mxPoint x="270" y="-782" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="81" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;fVarMax最大方差&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="362" y="-840" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;fVarInit 初始方差&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="362" y="-880" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="81" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-670" as="sourcePoint"/>
+                        <mxPoint x="337" y="-850" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="88" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="82" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="-700" as="sourcePoint"/>
+                        <mxPoint x="347" y="-880" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="89" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;fVarMin 最小方差&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="362" y="-800" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="89" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-599.5" as="sourcePoint"/>
+                        <mxPoint x="337" y="-814.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="91" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;fCT 权重衰减值&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="368" y="-470" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="91" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="-590" as="sourcePoint"/>
+                        <mxPoint x="347" y="-485" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;bgmodel 背景模型rows*cols*nmixture*(nchannel+GMM)&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="-430" width="420" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="93" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="-630" as="sourcePoint"/>
+                        <mxPoint x="347" y="-440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="99" target="100" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="定义&lt;font color=&quot;#569cd6&quot;&gt;&lt;span style=&quot;font-size: 14px ; background-color: rgb(30 , 30 , 30)&quot;&gt;&lt;b&gt;默认构造器&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-580" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="100" target="104" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="定义&lt;font color=&quot;#569cd6&quot;&gt;&lt;span style=&quot;font-size: 14px ; background-color: rgb(30 , 30 , 30)&quot;&gt;&lt;b&gt;用户构造器&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-500" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="104" target="106" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="104" target="114" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="定义apply训练器" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-420" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="106" target="107" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="输入单通道或三通道frame，并构建输入输出Mat" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-680" y="-650" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="107" target="108" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;++nframes&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-680" y="-580" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="108" target="109" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;计算当前帧的学习率&lt;span&gt;learningRate&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-680" y="-510" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="109" target="114" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-weight: 600 ; font-size: 14px ; line-height: 19px&quot;&gt;并行化模型匹配和更新&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-680" y="-440" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="114" target="119" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="114" target="155" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" value="定义并行化执行器" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-350" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="117" value="&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;bgmodelUsedModes&lt;/span&gt;&lt;span style=&quot;color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600 ; background-color: rgb(30 , 30 , 30)&quot;&gt;&amp;nbsp;各像素模型数量rows*cols*uchar&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;align=center;verticalAlign=middle;strokeWidth=1;autosize=1;spacing=4;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;entityRelationEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;,&quot;segment&quot;:10,&quot;curved&quot;:1};gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="-380" width="400" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="117" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="120" y="-595" as="sourcePoint"/>
+                        <mxPoint x="288" y="-370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="123" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="119" target="122" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="对行进行遍历" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="-180" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="122" target="124" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="获取src、mean、GMM、&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;modesUsed、mask的行首指针&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="-100" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="124" target="126" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="对col遍历" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="-20" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="126" target="128" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="126" value="获取具体行列位置下的src、mean、GMM、&lt;span style=&quot;background-color: rgb(30 , 30 , 30) ; color: rgb(212 , 212 , 212) ; font-size: 14px ; font-weight: 600&quot;&gt;modesUsed、mask指针&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="60" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="128" target="130" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="128" target="142" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-250" y="165"/>
+                            <mxPoint x="-250" y="715"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="128" value="对已经排序的模型进行迭代" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="140" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="134" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="130" target="132" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="130" value="计算模型和帧像素间的方差距离" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="270" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="132" target="133" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="132" value="判断像素是否属于背景" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="350" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="133" target="136" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="133" target="142" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-720" y="455"/>
+                            <mxPoint x="-720" y="715"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="133" value="判断像素与当前模型匹配" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="430" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="140" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="136" target="139" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="更新模型的方差和权重、均值" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="530" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="138" value="Y" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="-490" y="490" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="139" target="142" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="139" value="更新完后根据权重重新排序" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="610" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="145" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="142" target="143" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="142" value="删除不重要的模型" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="690" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="143" target="146" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="143" value="权重衰减" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="770" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="147" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="146" target="128" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-690" y="870"/>
+                            <mxPoint x="-770" y="870"/>
+                            <mxPoint x="-770" y="165"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="146" value="归一化所有模型的权重" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-690" y="850" width="380" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="还未匹配到模型" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="-500" y="220" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" value="已经匹配到模型" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="-250" y="430" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="-740" y="570" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="返回前景掩码图像" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-190" y="-210" width="380" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
