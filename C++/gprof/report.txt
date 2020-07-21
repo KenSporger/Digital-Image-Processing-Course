@@ -1,0 +1,43 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00   133494     0.00     0.00  __gnu_cxx::__enable_if<std::__is_integer<int>::__value, double>::__type std::sqrt<int>(int)
+  0.00      0.00     0.00    99999     0.00     0.00  func1(int)
+  0.00      0.00     0.00    33495     0.00     0.00  func2(int)
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z5func1i
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00   33495/133494      func2(int) [10]
+                0.00    0.00   99999/133494      func1(int) [9]
+[8]      0.0    0.00    0.00  133494         __gnu_cxx::__enable_if<std::__is_integer<int>::__value, double>::__type std::sqrt<int>(int) [8]
+-----------------------------------------------
+                0.00    0.00   99999/99999       main [6]
+[9]      0.0    0.00    0.00   99999         func1(int) [9]
+                0.00    0.00   99999/133494      __gnu_cxx::__enable_if<std::__is_integer<int>::__value, double>::__type std::sqrt<int>(int) [8]
+-----------------------------------------------
+                0.00    0.00   33495/33495       main [6]
+[10]     0.0    0.00    0.00   33495         func2(int) [10]
+                0.00    0.00   33495/133494      __gnu_cxx::__enable_if<std::__is_integer<int>::__value, double>::__type std::sqrt<int>(int) [8]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [18]
+[11]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z5func1i [11]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [12]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z5func1i [11]
+[12]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [12]
+-----------------------------------------------
+
+Index by function name
+
+  [11] _GLOBAL__sub_I__Z5func1i [9] func1(int)             [8] __gnu_cxx::__enable_if<std::__is_integer<int>::__value, double>::__type std::sqrt<int>(int)
+  [12] __static_initialization_and_destruction_0(int, int) [10] func2(int)
