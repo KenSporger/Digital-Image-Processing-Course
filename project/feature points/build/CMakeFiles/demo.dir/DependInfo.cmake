@@ -5,11 +5,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/main.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles/demo.dir/main.cpp.o"
+  "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/harris.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles/demo.dir/src/harris.cpp.o"
+  "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/sift.cpp" "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles/demo.dir/src/sift.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../inc"
   "/usr/local/opencv-3.4.2/include"
   "/usr/local/opencv-3.4.2/include/opencv"
   )

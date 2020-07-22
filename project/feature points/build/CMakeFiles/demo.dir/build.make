@@ -81,14 +81,66 @@ CMakeFiles/demo.dir/main.cpp.o.provides: CMakeFiles/demo.dir/main.cpp.o.requires
 CMakeFiles/demo.dir/main.cpp.o.provides.build: CMakeFiles/demo.dir/main.cpp.o
 
 
+CMakeFiles/demo.dir/src/harris.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/src/harris.cpp.o: ../src/harris.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo.dir/src/harris.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/harris.cpp.o -c "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/harris.cpp"
+
+CMakeFiles/demo.dir/src/harris.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/harris.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/harris.cpp" > CMakeFiles/demo.dir/src/harris.cpp.i
+
+CMakeFiles/demo.dir/src/harris.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/harris.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/harris.cpp" -o CMakeFiles/demo.dir/src/harris.cpp.s
+
+CMakeFiles/demo.dir/src/harris.cpp.o.requires:
+
+.PHONY : CMakeFiles/demo.dir/src/harris.cpp.o.requires
+
+CMakeFiles/demo.dir/src/harris.cpp.o.provides: CMakeFiles/demo.dir/src/harris.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/harris.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/src/harris.cpp.o.provides
+
+CMakeFiles/demo.dir/src/harris.cpp.o.provides.build: CMakeFiles/demo.dir/src/harris.cpp.o
+
+
+CMakeFiles/demo.dir/src/sift.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/src/sift.cpp.o: ../src/sift.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo.dir/src/sift.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/sift.cpp.o -c "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/sift.cpp"
+
+CMakeFiles/demo.dir/src/sift.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/sift.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/sift.cpp" > CMakeFiles/demo.dir/src/sift.cpp.i
+
+CMakeFiles/demo.dir/src/sift.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/sift.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/sift.cpp" -o CMakeFiles/demo.dir/src/sift.cpp.s
+
+CMakeFiles/demo.dir/src/sift.cpp.o.requires:
+
+.PHONY : CMakeFiles/demo.dir/src/sift.cpp.o.requires
+
+CMakeFiles/demo.dir/src/sift.cpp.o.provides: CMakeFiles/demo.dir/src/sift.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/sift.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/src/sift.cpp.o.provides
+
+CMakeFiles/demo.dir/src/sift.cpp.o.provides.build: CMakeFiles/demo.dir/src/sift.cpp.o
+
+
 # Object files for target demo
 demo_OBJECTS = \
-"CMakeFiles/demo.dir/main.cpp.o"
+"CMakeFiles/demo.dir/main.cpp.o" \
+"CMakeFiles/demo.dir/src/harris.cpp.o" \
+"CMakeFiles/demo.dir/src/sift.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
 demo: CMakeFiles/demo.dir/main.cpp.o
+demo: CMakeFiles/demo.dir/src/harris.cpp.o
+demo: CMakeFiles/demo.dir/src/sift.cpp.o
 demo: CMakeFiles/demo.dir/build.make
 demo: /usr/local/opencv-3.4.2/lib/libopencv_stitching.so.3.4.2
 demo: /usr/local/opencv-3.4.2/lib/libopencv_superres.so.3.4.2
@@ -136,7 +188,7 @@ demo: /usr/local/opencv-3.4.2/lib/libopencv_objdetect.so.3.4.2
 demo: /usr/local/opencv-3.4.2/lib/libopencv_imgproc.so.3.4.2
 demo: /usr/local/opencv-3.4.2/lib/libopencv_core.so.3.4.2
 demo: CMakeFiles/demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -145,6 +197,8 @@ CMakeFiles/demo.dir/build: demo
 .PHONY : CMakeFiles/demo.dir/build
 
 CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/main.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/harris.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/sift.cpp.o.requires
 
 .PHONY : CMakeFiles/demo.dir/requires
 

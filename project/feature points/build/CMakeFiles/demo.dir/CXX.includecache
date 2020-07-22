@@ -6,13 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/main.cpp
+../inc/featurePoints.h
 iostream
 -
 opencv2/opencv.hpp
 -
+opencv2/core.hpp
+../inc/opencv2/core.hpp
+opencv2/features2d.hpp
+../inc/opencv2/features2d.hpp
+opencv2/xfeatures2d.hpp
+../inc/opencv2/xfeatures2d.hpp
+opencv2/highgui.hpp
+../inc/opencv2/highgui.hpp
 algorithm
 -
+
+/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/main.cpp
+featurePoints.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/featurePoints.h
+
+/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/harris.cpp
+featurePoints.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/featurePoints.h
+
+/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/sift.cpp
+featurePoints.h
+/home/ken/Documents/Digital-Image-Processing-Course/project/feature points/src/featurePoints.h
 
 /usr/local/opencv-3.4.2/include/opencv/cxcore.h
 opencv2/core/core_c.h
@@ -1306,7 +1326,17 @@ opencv2/videostab/global_motion.hpp
 opencv2/videostab/log.hpp
 /usr/local/opencv-3.4.2/include/opencv2/videostab/opencv2/videostab/log.hpp
 
+/usr/local/opencv-3.4.2/include/opencv2/xfeatures2d.hpp
+opencv2/features2d.hpp
+/usr/local/opencv-3.4.2/include/opencv2/opencv2/features2d.hpp
+opencv2/xfeatures2d/nonfree.hpp
+/usr/local/opencv-3.4.2/include/opencv2/opencv2/xfeatures2d/nonfree.hpp
+
 /usr/local/opencv-3.4.2/include/opencv2/xfeatures2d/cuda.hpp
 opencv2/core/cuda.hpp
 /usr/local/opencv-3.4.2/include/opencv2/xfeatures2d/opencv2/core/cuda.hpp
+
+/usr/local/opencv-3.4.2/include/opencv2/xfeatures2d/nonfree.hpp
+opencv2/features2d.hpp
+/usr/local/opencv-3.4.2/include/opencv2/xfeatures2d/opencv2/features2d.hpp
 

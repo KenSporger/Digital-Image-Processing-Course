@@ -150,6 +150,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/harris.o: src/harris.cpp.o
+
+.PHONY : src/harris.o
+
+# target to build an object file
+src/harris.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/harris.cpp.o
+.PHONY : src/harris.cpp.o
+
+src/harris.i: src/harris.cpp.i
+
+.PHONY : src/harris.i
+
+# target to preprocess a source file
+src/harris.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/harris.cpp.i
+.PHONY : src/harris.cpp.i
+
+src/harris.s: src/harris.cpp.s
+
+.PHONY : src/harris.s
+
+# target to generate assembly for a file
+src/harris.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/harris.cpp.s
+.PHONY : src/harris.cpp.s
+
+src/sift.o: src/sift.cpp.o
+
+.PHONY : src/sift.o
+
+# target to build an object file
+src/sift.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/sift.cpp.o
+.PHONY : src/sift.cpp.o
+
+src/sift.i: src/sift.cpp.i
+
+.PHONY : src/sift.i
+
+# target to preprocess a source file
+src/sift.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/sift.cpp.i
+.PHONY : src/sift.cpp.i
+
+src/sift.s: src/sift.cpp.s
+
+.PHONY : src/sift.s
+
+# target to generate assembly for a file
+src/sift.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/sift.cpp.s
+.PHONY : src/sift.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +216,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/harris.o"
+	@echo "... src/harris.i"
+	@echo "... src/harris.s"
+	@echo "... src/sift.o"
+	@echo "... src/sift.i"
+	@echo "... src/sift.s"
 .PHONY : help
 
 
