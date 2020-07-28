@@ -1,0 +1,3 @@
+/home/ken/Documents/Digital-Image-Processing-Course/project/openFace/build/CMakeFiles/rebuild_cache.dir
+/home/ken/Documents/Digital-Image-Processing-Course/project/openFace/build/CMakeFiles/demo.dir
+/home/ken/Documents/Digital-Image-Processing-Course/project/openFace/build/CMakeFiles/edit_cache.dir
