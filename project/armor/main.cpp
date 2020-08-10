@@ -64,7 +64,7 @@ void SEUDetect()
 #if defined(TIME_COUNT)
     Arm.timeInit();
 #endif
-    VideoCapture video("../../../video/armorblue.mp4");
+    VideoCapture video("../../../video/armormini.mp4");
     if (!video.isOpened())
     {
         cout << "can't openc video!" << endl;

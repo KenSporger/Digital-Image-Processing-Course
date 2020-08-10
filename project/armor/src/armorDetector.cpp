@@ -42,10 +42,10 @@ void ArmorDetector::loadImg(const Mat &srcImg)
     _srcImg = srcImg;
 #if defined(DEBUG_DETECTION) || defined(SHOW_RESULT)
     _debugImg = srcImg.clone();
+    cout<< "_status:    " << _status << endl;
 #endif
     //srcImg的图像框
     Rect imgBound = Rect(Point(0, 0), _srcImg.size());
-
     //处于追踪某块装甲板（不需要搜索全图）
     if (_status == ARMOR_LOCAL)
     {
@@ -54,6 +54,13 @@ void ArmorDetector::loadImg(const Mat &srcImg)
         bRect = cvex::scaleRect(bRect, Vec2f(3,2));
         //通过与操作还解决了坐标溢出的问题
         _roi = bRect & imgBound;
+        // 将原来的装甲坐标转到新的坐标系中
+        bRect = bRect - _roi.tl();
+        _targetArmor.vertex[0] = Point2f(bRect.x, bRect.y);
+        _targetArmor.vertex[1] = Point2f(bRect.x + bRect.width, bRect.y);
+        _targetArmor.vertex[2] = Point2f(bRect.x + bRect.width, bRect.y + bRect.height);
+        _targetArmor.vertex[3] = Point2f(bRect.x, bRect.y + bRect.height);
+
         //由于_srcImg是对srcImg的引用，不能改变const对象
         // _srcImg(_roi).copyTo(_roiImg);
         _roiImg = _srcImg(_roi).clone();
@@ -68,6 +75,7 @@ void ArmorDetector::loadImg(const Mat &srcImg)
     }
 #if defined(DEBUG_DETECTION) 
     //绘制_roi
+    imshow("roiimg", _roiImg);
     rectangle(_debugImg, _roi, cvex::WHITE);
 #endif
     
@@ -88,6 +96,7 @@ const std::vector<cv::Point2f> ArmorDetector::getArmorVertex() const
 
 int ArmorDetector::detect()
 {
+    static int lost_cnt = 0;
     //清空所有装甲
     _armors.clear();
     //视野内的灯条
@@ -130,6 +139,7 @@ int ArmorDetector::detect()
     findContourTS.clockEnd();
 #endif
 #if defined(DEBUG_DETECTION)
+    cout << "lost_cnt:  " << lost_cnt << endl;
     //预览所有轮廓
     cout << "显示待筛选灯条轮廓..." << endl;
     cvex::showContours(_debugWindowName, _debugImg, _debugImg, lightContours, cvex::YELLOW, 0, _roi.tl());
@@ -204,10 +214,30 @@ int ArmorDetector::detect()
 #if defined(TIME_COUNT)
     contourFilterTS.clockEnd();
 #endif
-    //未检测到灯条
+
     if (lightInfos.empty())
     {
-        return _status = ARMOR_NONE;
+        
+        //从锁定目标到丢失目标
+        if (_status == ARMOR_LOCAL)
+        {
+            if (++lost_cnt > 3) 
+            {
+                lost_cnt = 0;
+                //无目标状态
+                _targetArmor.clear();
+                return _status = ARMOR_LOST;
+            }
+
+
+            return _status == ARMOR_LOCAL;
+        }
+        else
+        {
+            //无目标状态
+            _targetArmor.clear();
+            return _status = ARMOR_NONE;
+        } 
     }
 
 #if defined(DEBUG_DETECTION)
@@ -288,11 +318,11 @@ int ArmorDetector::detect()
     armorFilterTS.clockEnd();
 #endif
 
-    //未识别到装甲
-    if (_armors.empty())
-    {
-        return _status = ARMOR_NONE;
-    }
+    // //未识别到装甲
+    // if (_armors.empty())
+    // {
+    //     return _status = ARMOR_NONE;
+    // }
     //未理解
 	// _armors.erase(remove_if(_armors.begin(), _armors.end(), [](ArmorDescriptor& i)
 	// {
@@ -302,16 +332,22 @@ int ArmorDetector::detect()
 
     if (_armors.empty())
     {
-        //无目标状态
-        _targetArmor.clear();
-        
         //从锁定目标到丢失目标
         if (_status == ARMOR_LOCAL)
         {
-            return _status = ARMOR_LOST;
+            if (++lost_cnt > 3) 
+            {
+                lost_cnt = 0;
+                //无目标状态
+                _targetArmor.clear();
+                return _status = ARMOR_LOST;
+            }
+            return _status == ARMOR_LOCAL;
         }
         else
         {
+            //无目标状态
+            _targetArmor.clear();
             return _status = ARMOR_NONE;
         } 
     }
@@ -365,6 +401,7 @@ int ArmorDetector::detect()
             cvex::showContours(_debugWindowName, _debugImg, _debugImg, armorContours, cvex::BLUE, -1, _roi.tl());
     }
 #endif
+    lost_cnt = 0;
     return _status = ARMOR_LOCAL;
 
 }

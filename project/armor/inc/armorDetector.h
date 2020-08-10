@@ -5,10 +5,10 @@
 #include<opencv2/opencv.hpp>
 #include "opencv_extended.h"
 
-// #define DEBUG_PRETREATMENT
-// #define DEBUG_DETECTION
+#define DEBUG_PRETREATMENT
+#define DEBUG_DETECTION
 #define SHOW_RESULT
-#define TIME_COUNT
+// #define TIME_COUNT
 
 //RM空间包裹
 namespace rm
