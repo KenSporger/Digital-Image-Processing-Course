@@ -76,7 +76,7 @@ void ptr_vector::check(size_type i, const string &msg) const
         throw out_of_range(msg);
 }
 
-
+// 使用动态指针共享内存
 void demo3()
 {
     vector<int> v1={1,2,3};
@@ -94,6 +94,8 @@ void demo3()
     cout << obj1.at(0) << endl;
 
 }
+
+
 
 
 
