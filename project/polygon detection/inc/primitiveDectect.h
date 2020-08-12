@@ -7,6 +7,7 @@
 #include<algorithm>
 #include<vector>
 
-void primitiveDectectDemo();
+void cornorDetect();
+void cornorLocate();
 
 #endif
