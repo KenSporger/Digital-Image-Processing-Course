@@ -64,21 +64,31 @@ void cornorDetect()
     Mat img = imread("../../../img/star.jpeg");
     Mat gray;
     cvtColor(img, gray, CV_BGR2GRAY);
-
-    Mat gradX, gradY, edge;
-    Sobel(gray, gradX, CV_16SC1, 1, 0);
-    Sobel(gray, gradY, CV_16SC1, 0, 1);
-    Canny(gradX, gradY, edge,30, 100);
-    imshow("canny", edge);
-
     int rows = img.rows;
     int cols = img.cols;
-    const int radius = 5;
-    float Td = 2;
-    float sigma = radius /2.0;
-    float Eth1 = 1000, Eth2 =0.8, Eth3 =600;
-    vector<vector<int>> keyPoints;
+    Mat gradX, gradY;
+    Mat gradXY(rows, cols, CV_16SC1, Scalar::all(0));
+    Sobel(gray, gradX, CV_16SC1, 1, 0);
+    Sobel(gray, gradY, CV_16SC1, 0, 1);
+    Mat edge(rows, cols, CV_8UC1, Scalar::all(0));
 
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            gradXY.at<int16_t>(i, j) = sqrt(gradX.at<int16_t>(i, j)*gradX.at<int16_t>(i, j)+
+                                            gradY.at<int16_t>(i, j)*gradY.at<int16_t>(i, j));
+            // cout << gradXY.at<int16_t>(i, j) << endl;
+            if (gradXY.at<int16_t>(i, j) > 300) edge.at<uchar>(i, j) = 255; 
+        }
+    }  
+    const int radius = 10;
+    float Td = 1;
+    float sigma = radius /2.0;
+    float Eth1 = 4000, Eth2 =1.0, Eth3 =600;
+    vector<vector<int>> keyPoints;
+    Mat EaMat(rows, cols, CV_32FC1, Scalar::all(0));
+    Mat ErMat(rows, cols, CV_32FC1, Scalar::all(0));
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
@@ -113,14 +123,30 @@ void cornorDetect()
             }
             float Et = accumulate(begin(hp), end(hp), float(0));
             int mainAngle = max_element(begin(hp), end(hp)) - begin(hp);
-            int beg1 = mainAngle >= 5 ? mainAngle - 5 : 0;
-            int end1 = mainAngle <= 175 ? mainAngle + 5: 180;
-            float Em = accumulate(begin(hp) + beg1, begin(hp) + end1, float(0));
+            // int beg1 = mainAngle >= 5 ? mainAngle - 5 : 0;
+            // int end1 = mainAngle <= 175 ? mainAngle + 5: 180;
+            // int beg2 = mainAngle < 5 ? mainAngle - 5 : 0;
+            int beg1 = mainAngle - 5;
+            int end1 = mainAngle + 5;
+            float Em;
+            if (beg1 >= 0 && end1 <= 180)
+                Em = accumulate(begin(hp) + beg1, begin(hp) + end1, float(0));
+            else if (beg1 < 0)
+            {
+                Em = accumulate(begin(hp), begin(hp) + end1, float(0));
+                Em = accumulate(end(hp) + beg1, end(hp), Em);
+            }
+            else
+            {
+                Em = accumulate(begin(hp) + beg1, end(hp), float(0));
+                Em = accumulate(begin(hp), begin(hp) + end1 - 180, Em);               
+            }
+
             float Ea = Et - Em;
             float Er = Ea  / Em;
             if (Ea >Eth1 && Er > Eth2)
             {
-                // cout << Ea << "," <<Er << endl;
+                cout << Ea << "," <<Er << endl;
                 vector<int> p={j, i};
                 bool flag = false;
                 for (int z = 0; z < 180; z++)
@@ -136,12 +162,14 @@ void cornorDetect()
                 if (flag)
                 {
                     // cout << i << "," << j << endl;
-                    circle(img, Point2d(j, i), 4, Scalar(255, 0, 0), 1);
+                    // circle(img, Point2d(j, i), 4, Scalar(255, 0, 0), 1);
                     // Mat hist = paintHistgram(hp, 180);
                     // imshow("hist", hist);
                     // imshow("img", img);
                     // waitKey(0);
-                    keyPoints.push_back(p);
+                    // keyPoints.push_back(p);
+                    EaMat.at<float>(i, j) = Ea;
+                    ErMat.at<float>(i, j) = Er;
                 }   
             }
 
@@ -185,9 +213,21 @@ void cornorDetect()
 
         }
     }
+
+
+    Mat EaMat_dilated;
+    dilate(EaMat, EaMat_dilated, getStructuringElement(MORPH_RECT, Size(3, 3)));
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if (EaMat.at<float>(i, j) > 0 && EaMat.at<float>(i, j) == EaMat_dilated.at<float>(i, j))
+                    circle(img, Point2d(j, i), 4, Scalar(255, 0, 0), 1);
+        }
+    }
+    // cout << keyPoints.size() << endl;
     imshow("img", img);
     waitKey(0);
-    // cout << keyPoints.size() << endl;
 
     // imshow("gray", gray);
     
@@ -233,19 +273,30 @@ void cornorLocate()
     Mat img = imread("../../../img/star.jpeg");
     Mat gray;
     cvtColor(img, gray, CV_BGR2GRAY);
-
-    Mat gradX, gradY, edge;
-    Sobel(gray, gradX, CV_16SC1, 1, 0);
-    Sobel(gray, gradY, CV_16SC1, 0, 1);
-    Canny(gradX, gradY, edge,50, 150);
-
     int rows = img.rows;
     int cols = img.cols;
-    const int radius = 5;
-    float Td = 2;
-    float sigma = radius /2.0;
-    float Eth1 = 1000, Eth2 =0.8, Eth3 =600;
+    Mat gradX, gradY;
+    Mat gradXY(rows, cols, CV_16SC1, Scalar::all(0));
+    Sobel(gray, gradX, CV_16SC1, 1, 0);
+    Sobel(gray, gradY, CV_16SC1, 0, 1);
+    Mat edge(rows, cols, CV_8UC1, Scalar::all(0));
 
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            gradXY.at<int16_t>(i, j) = sqrt(gradX.at<int16_t>(i, j)*gradX.at<int16_t>(i, j)+
+                                            gradY.at<int16_t>(i, j)*gradY.at<int16_t>(i, j));
+            // cout << gradXY.at<int16_t>(i, j) << endl;
+            if (gradXY.at<int16_t>(i, j) > 300) edge.at<uchar>(i, j) = 255; 
+        }
+    }  
+    const int radius = 10;
+    float Td = 1;
+    float sigma = radius /2.0;
+    float Eth1 = 4000, Eth2 =1.0, Eth3 =600;
+    Mat EaMat(rows, cols, CV_32FC1, Scalar::all(0));
+    Mat ErMat(rows, cols, CV_32FC1, Scalar::all(0));
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
@@ -287,30 +338,55 @@ void cornorLocate()
             int mainAngle = max_element(begin(hp), end(hp)) - begin(hp);
             int beg1 = mainAngle >= 5 ? mainAngle - 5 : 0;
             int end1 = mainAngle <= 175 ? mainAngle + 5: 180;
-            float Em = accumulate(begin(hp) + beg1, begin(hp) + end1, float(0));
+            float Em;
+            if (beg1 >= 0 && end1 <= 180)
+                Em = accumulate(begin(hp) + beg1, begin(hp) + end1, float(0));
+            else if (beg1 < 0)
+            {
+                Em = accumulate(begin(hp), begin(hp) + end1, float(0));
+                Em = accumulate(end(hp) + beg1, end(hp), Em);
+            }
+            else
+            {
+                Em = accumulate(begin(hp) + beg1, end(hp), float(0));
+                Em = accumulate(begin(hp), begin(hp) + end1 - 180, Em);               
+            }
             float Ea = Et - Em;
             float Er = Ea  / Em;
-            meanMag /= keyPoints.size();
-            // cout << Ea << "," << Er << endl;
+
+            // meanMag /= keyPoints.size();
             if (Ea >Eth1 && Er > Eth2)
             {
-                for (auto &p : keyPoints)
-                {
-                    p[4] = p[6] / (smooth(p[5] / meanMag, 2.0, 1.0) *p[4]);
-                }
-                Mat cornor;
-                cornorFit(keyPoints, cornor);
-                // if ()
-                circle(img, Point2d(cornor.at<double>(0,0), cornor.at<double>(1,0)), 4, Scalar(255, 0, 0), 1);
+                EaMat.at<float>(i, j) = Ea;
+                ErMat.at<float>(i, j) = Er;
+                // for (auto &p : keyPoints)
+                // {
+                //     p[4] = p[6] / (smooth(p[5] / meanMag, 2.0, 1.0) *p[4]);
+                // }
+                // Mat cornor;
+                // cornorFit(keyPoints, cornor);
+                // // if ()
+                // circle(img, Point2d(cornor.at<double>(0,0), cornor.at<double>(1,0)), 4, Scalar(255, 0, 0), 1);
             }
 
         }
     }
 
+    // Mat EaMat_dilated;
+    // dilate(EaMat, EaMat_dilated, getStructuringElement(MORPH_RECT, Size(3, 3)));
+    // for (int i = 0; i < rows; i++)
+    // {
+    //     for (int j = 0; j < cols; j++)
+    //     {
+    //         if (EaMat.at<float>(i, j) > 0 && EaMat.at<float>(i, j) == EaMat_dilated.at<float>(i, j))
+    //     }
+    // }
+
+    
     // cout << keyPoints.size() << endl;
 
     // imshow("gray", gray);
     // imshow("edge", edge);
-    imshow("img", img);
-    waitKey(0);
+    // imshow("img", img);
+    // waitKey(0);
 }

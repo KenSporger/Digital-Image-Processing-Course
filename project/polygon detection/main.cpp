@@ -10,5 +10,4 @@ int main()
     // cornorLocate();
     // cornorFit();
     // cout << atan(-1.0/0) /2/3.1415*360 << endl;
-
 }
