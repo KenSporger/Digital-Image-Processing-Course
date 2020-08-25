@@ -9,60 +9,105 @@
 using namespace std;
 using namespace cv;
 
-
-
-
-int main()
+// 英文字体识别
+void demo1()
 {
-    Mat img = imread("../../../img/ocr.jpg", 0);
+    Mat img = imread("../../../img/ocr.jpg", IMREAD_GRAYSCALE);
     Rect numRoi;
-    Mat numMat, dst;
+    Mat dst;
     numRoi = selectROI(img);
-    numMat = img(numRoi);
-    numMat.copyTo(dst);
-    // threshold(numMat, dst, 100, 255,THRESH_BINARY);
+    dst = img(numRoi);
     imshow("roi", dst);
     waitKey(0);
 
-    tesseract::TessBaseAPI tess;
-    tess.Init(NULL, "eng");
+    tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+    if (api->Init(NULL, "eng")) {
+        fprintf(stderr, "Could not initialize tesseract.\n");
+        exit(1);
+    }
     // tess.SetPageSegMode(tesseract::PSM_SINGLE_BLOCK);
-    tess.SetImage((uchar*)dst.data, dst.cols, dst.rows, 1, dst.cols);
- 
+    api->SetImage((uchar*)dst.data, dst.cols, dst.rows, 1, dst.cols);
     // Get the text
-    char* out = tess.GetUTF8Text();
+    char* out = api->GetUTF8Text();
     std::cout << out << std::endl;
+}
 
 
+// 英文字体识别
+void demo2()
+{
+    Mat img = imread("../../../img/ocr.jpg", IMREAD_GRAYSCALE);
+    Rect numRoi;
+    Mat dst;
+    numRoi = selectROI(img);
+    dst = img(numRoi);
 
+
+    tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+    if (api->Init(NULL, "eng")) {
+        fprintf(stderr, "Could not initialize tesseract.\n");
+        exit(1);
+    }
+    // tess.SetPageSegMode(tesseract::PSM_SINGLE_BLOCK);
+    api->SetImage((uchar*)dst.data, dst.cols, dst.rows, 1, dst.cols);
+    // Get the text
+    api->Recognize(0);
+    tesseract::ResultIterator* ri = api->GetIterator();
+    tesseract::PageIteratorLevel level = tesseract::RIL_WORD;
+    if (ri != 0) {
+        do {
+        const char* word = ri->GetUTF8Text(level);
+        float conf = ri->Confidence(level);
+        int x1, y1, x2, y2;
+        ri->BoundingBox(level, &x1, &y1, &x2, &y2);
+        printf("word: '%s';  \tconf: %.2f; BoundingBox: %d,%d,%d,%d;\n",
+                word, conf, x1, y1, x2, y2);
+        rectangle(img, Point(x1, y1), Point(x2, y2), Scalar(255), 2);
+        delete[] word;
+        } while (ri->Next(level));
+    }
+
+    api->End();
+    delete api;
+    imshow("img", img);
+    waitKey(0);
+}
+
+
+// 单字体分类
+void demo3()
+{
+    Mat img = imread("../../../img/ocr.jpg", IMREAD_GRAYSCALE);
+    Rect numRoi;
+    Mat dst;
+    numRoi = selectROI(img);
+    dst = img(numRoi);
+
+
+    tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+    if (api->Init(NULL, "eng")) {
+        fprintf(stderr, "Could not initialize tesseract.\n");
+        exit(1);
+    }
+    // tess.SetPageSegMode(tesseract::PSM_SINGLE_BLOCK);
+    api->SetImage((uchar*)dst.data, dst.cols, dst.rows, 1, dst.cols);
+    // Get the text
+    api->SetVariable("save_blob_choices", "2");
+    // api->Recognize(0);
+    // 
+    char* out = api->GetUTF8Text();
+    std::cout << out << std::endl;
+    api->End();
+    delete api;
 }
 
 
 
 
-// int main()
-// {
-//     char *outText;
+int main()
+{
+    demo1();
+    // demo2();
+    // demo3();
+}
 
-//     tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
-//     // Initialize tesseract-ocr with English, without specifying tessdata path
-//     if (api->Init(NULL, "eng")) {
-//         fprintf(stderr, "Could not initialize tesseract.\n");
-//         exit(1);
-//     }
-
-//     // Open input image with leptonica library
-//     Pix *image = pixRead("img/ocr.jpg");
-//     api->SetImage(image);
-//     // Get OCR result
-//     outText = api->GetUTF8Text();
-//     printf("OCR output:\n%s", outText);
-
-//     // Destroy used object and release memory
-//     api->End();
-//     delete api;
-//     delete [] outText;
-//     pixDestroy(&image);
-
-//     return 0;
-// }
