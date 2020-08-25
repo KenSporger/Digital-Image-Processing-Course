@@ -1,0 +1,3 @@
+/home/ken/Documents/Digital-Image-Processing-Course/project/number/build/CMakeFiles/rebuild_cache.dir
+/home/ken/Documents/Digital-Image-Processing-Course/project/number/build/CMakeFiles/demo.dir
+/home/ken/Documents/Digital-Image-Processing-Course/project/number/build/CMakeFiles/edit_cache.dir

@@ -18,7 +18,9 @@
         "-l", "opencv_flann",
         "-l", "opencv_imgcodecs",
         "-l", "opencv_photo",
-        "-l", "opencv_videoio"
+        "-l", "opencv_videoio",
+        "-l", "lept",
+        "-l", "tesseract"
     ],
     "problemMatcher":{
         "owner": "cpp",
