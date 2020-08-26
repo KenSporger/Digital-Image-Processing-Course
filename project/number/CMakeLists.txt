@@ -9,7 +9,6 @@ project(demo)
 
 set(OpenCV_DIR "/usr/local/opencv-4.0.1/share/OpenCV")
 
-set(LIB_DIRS /usr/lib/x86_64-linux-gnu)
 set(INC_DIR 
          ${PROJECT_SOURCE_DIR}/inc
 
